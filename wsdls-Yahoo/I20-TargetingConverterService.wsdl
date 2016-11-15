@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://marketing.ews.yahooapis.com/V6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <tns:version>6.1.0</tns:version>
+                </xsd:appinfo>
+            </xsd:annotation>
+            <xsd:element name="commandGroup">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="license">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="masterAccountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="quotaUsedForThisRequest">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="remainingQuota">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="timeTakenMillis">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ApiFault" type="tns:ApiFault"/>
+            <xsd:element name="getAgeRangeByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAgeRangeByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:AgeRange"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getDayPartingTargetingByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getDayPartingTargetingByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:DayPartingTargeting"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getGenderByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getGenderByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Gender"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getGeoLocationByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getGeoLocationByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:GeoLocation"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getNetworkByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getNetworkByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Network"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByAgeRange">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="ageRange" nillable="true" type="tns:AgeRange"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByAgeRangeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByDayPartingTargeting">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="dayPartingTargeting" nillable="true" type="tns:DayPartingTargeting"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByDayPartingTargetingResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByGender">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="gender" nillable="true" type="tns:Gender"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByGenderResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByGeoLocation">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="geoLocation" nillable="true" type="tns:GeoLocation"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByGeoLocationResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByNetwork">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="network" nillable="true" type="tns:Network"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByNetworkResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByUnderAgeFilter">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="underAgeFilter" nillable="true" type="tns:UnderAgeFilter"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributeDescriptorByUnderAgeFilterResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getUnderAgeFilterByTargetingAttributeDescriptor">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getUnderAgeFilterByTargetingAttributeDescriptorResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:UnderAgeFilter"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfPassword">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfUsername">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:simpleType name="DayOfTheWeek">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Saturday"/>
+                    <xsd:enumeration value="Monday"/>
+                    <xsd:enumeration value="Wednesday"/>
+                    <xsd:enumeration value="Sunday"/>
+                    <xsd:enumeration value="Friday"/>
+                    <xsd:enumeration value="Tuesday"/>
+                    <xsd:enumeration value="Thursday"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Gender">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Male"/>
+                    <xsd:enumeration value="Female"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TargetingPremiumType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Percentage"/>
+                    <xsd:enumeration value="Absolute"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="UnderAgeFilter">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Disable"/>
+                    <xsd:enumeration value="Enable"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="AgeRange">
+                <xsd:sequence>
+                    <xsd:element name="maxAge" type="xsd:int"/>
+                    <xsd:element name="minAge" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ApiFault">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDayPartingTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="DayPartingTarget" nillable="true" type="tns:DayPartingTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPart">
+                <xsd:sequence>
+                    <xsd:element name="dayOfTheWeek" type="tns:DayOfTheWeek"/>
+                    <xsd:element name="endHourOfDay" type="xsd:int"/>
+                    <xsd:element name="startHourOfDay" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPartingTarget">
+                <xsd:sequence>
+                    <xsd:element name="dayPart" type="tns:DayPart"/>
+                    <xsd:element minOccurs="0" name="premium" nillable="true" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPartingTargeting">
+                <xsd:sequence>
+                    <xsd:element name="dayPartingTargets" type="tns:ArrayOfDayPartingTarget"/>
+                    <xsd:element minOccurs="0" name="timeZone" nillable="true" type="xsd:string"/>
+                    <xsd:element name="userTimeZone" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GeoLocation">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="placeType" nillable="true" type="tns:TargetingType"/>
+                    <xsd:element name="woeid" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Network">
+                <xsd:sequence>
+                    <xsd:element name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element name="networkId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingAttributeDescriptor">
+                <xsd:sequence>
+                    <xsd:element name="targetingAttributeID" type="xsd:string"/>
+                    <xsd:element name="targetingType" type="tns:TargetingType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingPremium">
+                <xsd:sequence>
+                    <xsd:element name="type" type="tns:TargetingPremiumType"/>
+                    <xsd:element name="value" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingType">
+                <xsd:sequence>
+                    <xsd:element name="value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        
+        
+            <element name="Security" type="wsse:Security"/>
+            <complexType name="Security">
+                <sequence>
+                    <element name="UsernameToken" type="wsse:UsernameToken"/>
+                </sequence>
+            </complexType>
+            <complexType name="UsernameToken">
+                <sequence>
+                    <element name="Username" type="string"/>
+                    <element name="Password" type="string"/>
+                </sequence>
+            </complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ApiFault">
+        <wsdl:part element="tns:ApiFault" name="ApiFault"/>
+    </wsdl:message>
+    <wsdl:message name="Security">
+        <wsdl:part element="wsse:Security" name="Security"/>
+    </wsdl:message>
+    <wsdl:message name="commandGroup">
+        <wsdl:part element="tns:commandGroup" name="commandGroup"/>
+    </wsdl:message>
+    <wsdl:message name="getAgeRangeByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getAgeRangeByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAgeRangeByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getAgeRangeByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getDayPartingTargetingByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getDayPartingTargetingByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getDayPartingTargetingByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getDayPartingTargetingByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGenderByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getGenderByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGenderByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getGenderByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGeoLocationByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getGeoLocationByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getGeoLocationByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getGeoLocationByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getNetworkByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getNetworkByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getNetworkByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getNetworkByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByAgeRangeRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByAgeRange" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByAgeRangeResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByAgeRangeResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByDayPartingTargetingRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByDayPartingTargeting" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByDayPartingTargetingResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByDayPartingTargetingResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByGenderRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByGender" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByGenderResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByGenderResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByGeoLocationRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByGeoLocation" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByGeoLocationResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByGeoLocationResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByNetworkRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByNetwork" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByNetworkResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByNetworkResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByUnderAgeFilterRequest">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByUnderAgeFilter" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributeDescriptorByUnderAgeFilterResponse">
+        <wsdl:part element="tns:getTargetingAttributeDescriptorByUnderAgeFilterResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUnderAgeFilterByTargetingAttributeDescriptorRequest">
+        <wsdl:part element="tns:getUnderAgeFilterByTargetingAttributeDescriptor" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUnderAgeFilterByTargetingAttributeDescriptorResponse">
+        <wsdl:part element="tns:getUnderAgeFilterByTargetingAttributeDescriptorResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="license">
+        <wsdl:part element="tns:license" name="license"/>
+    </wsdl:message>
+    <wsdl:message name="masterAccountID">
+        <wsdl:part element="tns:masterAccountID" name="masterAccountID"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfPassword">
+        <wsdl:part element="tns:onBehalfOfPassword" name="onBehalfOfPassword"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfUsername">
+        <wsdl:part element="tns:onBehalfOfUsername" name="onBehalfOfUsername"/>
+    </wsdl:message>
+    <wsdl:message name="quotaUsedForThisRequest">
+        <wsdl:part element="tns:quotaUsedForThisRequest" name="quotaUsedForThisRequest"/>
+    </wsdl:message>
+    <wsdl:message name="remainingQuota">
+        <wsdl:part element="tns:remainingQuota" name="remainingQuota"/>
+    </wsdl:message>
+    <wsdl:message name="timeTakenMillis">
+        <wsdl:part element="tns:timeTakenMillis" name="timeTakenMillis"/>
+    </wsdl:message>
+    <wsdl:portType name="TargetingConverterService">
+        <wsdl:operation name="getAgeRangeByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getAgeRangeByTargetingAttributeDescriptorRequest" name="getAgeRangeByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getAgeRangeByTargetingAttributeDescriptorResponse" name="getAgeRangeByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDayPartingTargetingByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getDayPartingTargetingByTargetingAttributeDescriptorRequest" name="getDayPartingTargetingByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getDayPartingTargetingByTargetingAttributeDescriptorResponse" name="getDayPartingTargetingByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGenderByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getGenderByTargetingAttributeDescriptorRequest" name="getGenderByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getGenderByTargetingAttributeDescriptorResponse" name="getGenderByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoLocationByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getGeoLocationByTargetingAttributeDescriptorRequest" name="getGeoLocationByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getGeoLocationByTargetingAttributeDescriptorResponse" name="getGeoLocationByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNetworkByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getNetworkByTargetingAttributeDescriptorRequest" name="getNetworkByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getNetworkByTargetingAttributeDescriptorResponse" name="getNetworkByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByAgeRange">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByAgeRangeRequest" name="getTargetingAttributeDescriptorByAgeRangeRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByAgeRangeResponse" name="getTargetingAttributeDescriptorByAgeRangeResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByDayPartingTargeting">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByDayPartingTargetingRequest" name="getTargetingAttributeDescriptorByDayPartingTargetingRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByDayPartingTargetingResponse" name="getTargetingAttributeDescriptorByDayPartingTargetingResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByGender">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByGenderRequest" name="getTargetingAttributeDescriptorByGenderRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByGenderResponse" name="getTargetingAttributeDescriptorByGenderResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByGeoLocation">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByGeoLocationRequest" name="getTargetingAttributeDescriptorByGeoLocationRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByGeoLocationResponse" name="getTargetingAttributeDescriptorByGeoLocationResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByNetwork">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByNetworkRequest" name="getTargetingAttributeDescriptorByNetworkRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByNetworkResponse" name="getTargetingAttributeDescriptorByNetworkResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByUnderAgeFilter">
+            <wsdl:input message="tns:getTargetingAttributeDescriptorByUnderAgeFilterRequest" name="getTargetingAttributeDescriptorByUnderAgeFilterRequest"/>
+            <wsdl:output message="tns:getTargetingAttributeDescriptorByUnderAgeFilterResponse" name="getTargetingAttributeDescriptorByUnderAgeFilterResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getUnderAgeFilterByTargetingAttributeDescriptor">
+            <wsdl:input message="tns:getUnderAgeFilterByTargetingAttributeDescriptorRequest" name="getUnderAgeFilterByTargetingAttributeDescriptorRequest"/>
+            <wsdl:output message="tns:getUnderAgeFilterByTargetingAttributeDescriptorResponse" name="getUnderAgeFilterByTargetingAttributeDescriptorResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TargetingConverterServiceHttpBinding" type="tns:TargetingConverterService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getAgeRangeByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getAgeRangeByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAgeRangeByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDayPartingTargetingByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getDayPartingTargetingByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDayPartingTargetingByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getGenderByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getGenderByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getGenderByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoLocationByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getGeoLocationByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getGeoLocationByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNetworkByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getNetworkByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getNetworkByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByAgeRange">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByAgeRangeRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByAgeRangeResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByDayPartingTargeting">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByDayPartingTargetingRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByDayPartingTargetingResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByGender">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByGenderRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByGenderResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByGeoLocation">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByGeoLocationRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByGeoLocationResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByNetwork">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByNetworkRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByNetworkResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributeDescriptorByUnderAgeFilter">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributeDescriptorByUnderAgeFilterRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributeDescriptorByUnderAgeFilterResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUnderAgeFilterByTargetingAttributeDescriptor">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getUnderAgeFilterByTargetingAttributeDescriptorRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUnderAgeFilterByTargetingAttributeDescriptorResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TargetingConverterServiceService">
+        <wsdl:port binding="tns:TargetingConverterServiceHttpBinding" name="TargetingConverterService">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6/TargetingConverterService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

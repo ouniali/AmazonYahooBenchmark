@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://marketing.ews.yahooapis.com/V6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <tns:version>6.1.0</tns:version>
+                </xsd:appinfo>
+            </xsd:annotation>
+            <xsd:element name="commandGroup">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="license">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="masterAccountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="quotaUsedForThisRequest">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="remainingQuota">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="timeTakenMillis">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ApiFault" type="tns:ApiFault"/>
+            <xsd:element name="addAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="tns:Account"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountDailySpendLimit" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Account"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addMobileAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="tns:Account"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountDailySpendLimit" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addMobileAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Account"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addMoney">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="amount" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addMoneyResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="deleteBlockedDomainListForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteBlockedDomainListForAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="deleteContinentBlockListFromAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteContinentBlockListFromAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccountBalance">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccountBalanceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:AccountBalance"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Account"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccountStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccountStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:CombinedAccountStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAccounts">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getAccountsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfAccount"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getActiveCreditCard">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getActiveCreditCardResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getBlockedDomainListForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getBlockedDomainListForAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfString"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getChargeAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getChargeAmountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getContinentBlockListForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getContinentBlockListForAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfContinent"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="isMobileAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="isMobileAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfPassword">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfUsername">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="setActiveCreditCard">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="paymentMethodID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setActiveCreditCardResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="setBlockedDomainListForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="blockedDomainList" nillable="true" type="tns:ArrayOfString"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setBlockedDomainListForAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="setChargeAmount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="chargeAmount" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setChargeAmountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="setContinentBlockListForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="continents" nillable="true" type="tns:ArrayOfContinent"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setContinentBlockListForAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="updateAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="account" nillable="true" type="tns:Account"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="updateAll" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="updateStatusForAccount">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountStatus" nillable="true" type="tns:AccountStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateStatusForAccountResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:simpleType name="AccountStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Active"/>
+                    <xsd:enumeration value="Inactive"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Continent">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Africa"/>
+                    <xsd:enumeration value="Europe"/>
+                    <xsd:enumeration value="SouthAmerica"/>
+                    <xsd:enumeration value="Asia"/>
+                    <xsd:enumeration value="NorthAmerica"/>
+                    <xsd:enumeration value="Australia"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="Account">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="advancedMatchON" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="businessItem" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="businessTypeCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="contentMatchON" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="displayURL" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="fiscalCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="hasFiscalCode" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="hasNifCif" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="hasVatRegistrationNumber" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="marketID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="masterAccountID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="nameFurigana" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="nifCif" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="personalID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="presidentName" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="sitePassword" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="siteUserName" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchON" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="vatRegistrationCountry" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="vatRegistrationNumber" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="websiteURL" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="AccountBalance">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="accountBalance" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" name="accountBalanceAsOf" nillable="true" type="xsd:dateTime"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ApiFault">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfAccount">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Account" nillable="true" type="tns:Account"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfContinent">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Continent" nillable="true" type="tns:Continent"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfString">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CombinedAccountStatus">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="accountStatus" nillable="true" type="tns:AccountStatus"/>
+                    <xsd:element minOccurs="0" name="onlineStatus" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="onlineStatusAsOf" nillable="true" type="xsd:dateTime"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        
+        
+            <element name="Security" type="wsse:Security"/>
+            <complexType name="Security">
+                <sequence>
+                    <element name="UsernameToken" type="wsse:UsernameToken"/>
+                </sequence>
+            </complexType>
+            <complexType name="UsernameToken">
+                <sequence>
+                    <element name="Username" type="string"/>
+                    <element name="Password" type="string"/>
+                </sequence>
+            </complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ApiFault">
+        <wsdl:part element="tns:ApiFault" name="ApiFault"/>
+    </wsdl:message>
+    <wsdl:message name="Security">
+        <wsdl:part element="wsse:Security" name="Security"/>
+    </wsdl:message>
+    <wsdl:message name="addAccountRequest">
+        <wsdl:part element="tns:addAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addAccountResponse">
+        <wsdl:part element="tns:addAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addMobileAccountRequest">
+        <wsdl:part element="tns:addMobileAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addMobileAccountResponse">
+        <wsdl:part element="tns:addMobileAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addMoneyRequest">
+        <wsdl:part element="tns:addMoney" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addMoneyResponse">
+        <wsdl:part element="tns:addMoneyResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="commandGroup">
+        <wsdl:part element="tns:commandGroup" name="commandGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteBlockedDomainListForAccountRequest">
+        <wsdl:part element="tns:deleteBlockedDomainListForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteBlockedDomainListForAccountResponse">
+        <wsdl:part element="tns:deleteBlockedDomainListForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteContinentBlockListFromAccountRequest">
+        <wsdl:part element="tns:deleteContinentBlockListFromAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteContinentBlockListFromAccountResponse">
+        <wsdl:part element="tns:deleteContinentBlockListFromAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountBalanceRequest">
+        <wsdl:part element="tns:getAccountBalance" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountBalanceResponse">
+        <wsdl:part element="tns:getAccountBalanceResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountRequest">
+        <wsdl:part element="tns:getAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountResponse">
+        <wsdl:part element="tns:getAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountStatusRequest">
+        <wsdl:part element="tns:getAccountStatus" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountStatusResponse">
+        <wsdl:part element="tns:getAccountStatusResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountsRequest">
+        <wsdl:part element="tns:getAccounts" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getAccountsResponse">
+        <wsdl:part element="tns:getAccountsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getActiveCreditCardRequest">
+        <wsdl:part element="tns:getActiveCreditCard" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getActiveCreditCardResponse">
+        <wsdl:part element="tns:getActiveCreditCardResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBlockedDomainListForAccountRequest">
+        <wsdl:part element="tns:getBlockedDomainListForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBlockedDomainListForAccountResponse">
+        <wsdl:part element="tns:getBlockedDomainListForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getChargeAmountRequest">
+        <wsdl:part element="tns:getChargeAmount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getChargeAmountResponse">
+        <wsdl:part element="tns:getChargeAmountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getContinentBlockListForAccountRequest">
+        <wsdl:part element="tns:getContinentBlockListForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getContinentBlockListForAccountResponse">
+        <wsdl:part element="tns:getContinentBlockListForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="isMobileAccountRequest">
+        <wsdl:part element="tns:isMobileAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="isMobileAccountResponse">
+        <wsdl:part element="tns:isMobileAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="license">
+        <wsdl:part element="tns:license" name="license"/>
+    </wsdl:message>
+    <wsdl:message name="masterAccountID">
+        <wsdl:part element="tns:masterAccountID" name="masterAccountID"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfPassword">
+        <wsdl:part element="tns:onBehalfOfPassword" name="onBehalfOfPassword"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfUsername">
+        <wsdl:part element="tns:onBehalfOfUsername" name="onBehalfOfUsername"/>
+    </wsdl:message>
+    <wsdl:message name="quotaUsedForThisRequest">
+        <wsdl:part element="tns:quotaUsedForThisRequest" name="quotaUsedForThisRequest"/>
+    </wsdl:message>
+    <wsdl:message name="remainingQuota">
+        <wsdl:part element="tns:remainingQuota" name="remainingQuota"/>
+    </wsdl:message>
+    <wsdl:message name="setActiveCreditCardRequest">
+        <wsdl:part element="tns:setActiveCreditCard" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setActiveCreditCardResponse">
+        <wsdl:part element="tns:setActiveCreditCardResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setBlockedDomainListForAccountRequest">
+        <wsdl:part element="tns:setBlockedDomainListForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setBlockedDomainListForAccountResponse">
+        <wsdl:part element="tns:setBlockedDomainListForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setChargeAmountRequest">
+        <wsdl:part element="tns:setChargeAmount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setChargeAmountResponse">
+        <wsdl:part element="tns:setChargeAmountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setContinentBlockListForAccountRequest">
+        <wsdl:part element="tns:setContinentBlockListForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setContinentBlockListForAccountResponse">
+        <wsdl:part element="tns:setContinentBlockListForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="timeTakenMillis">
+        <wsdl:part element="tns:timeTakenMillis" name="timeTakenMillis"/>
+    </wsdl:message>
+    <wsdl:message name="updateAccountRequest">
+        <wsdl:part element="tns:updateAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateAccountResponse">
+        <wsdl:part element="tns:updateAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForAccountRequest">
+        <wsdl:part element="tns:updateStatusForAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForAccountResponse">
+        <wsdl:part element="tns:updateStatusForAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="AccountService">
+        <wsdl:operation name="addAccount">
+            <wsdl:input message="tns:addAccountRequest" name="addAccountRequest"/>
+            <wsdl:output message="tns:addAccountResponse" name="addAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="addMobileAccount">
+            <wsdl:input message="tns:addMobileAccountRequest" name="addMobileAccountRequest"/>
+            <wsdl:output message="tns:addMobileAccountResponse" name="addMobileAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="addMoney">
+            <wsdl:input message="tns:addMoneyRequest" name="addMoneyRequest"/>
+            <wsdl:output message="tns:addMoneyResponse" name="addMoneyResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteBlockedDomainListForAccount">
+            <wsdl:input message="tns:deleteBlockedDomainListForAccountRequest" name="deleteBlockedDomainListForAccountRequest"/>
+            <wsdl:output message="tns:deleteBlockedDomainListForAccountResponse" name="deleteBlockedDomainListForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteContinentBlockListFromAccount">
+            <wsdl:input message="tns:deleteContinentBlockListFromAccountRequest" name="deleteContinentBlockListFromAccountRequest"/>
+            <wsdl:output message="tns:deleteContinentBlockListFromAccountResponse" name="deleteContinentBlockListFromAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAccount">
+            <wsdl:input message="tns:getAccountRequest" name="getAccountRequest"/>
+            <wsdl:output message="tns:getAccountResponse" name="getAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAccountBalance">
+            <wsdl:input message="tns:getAccountBalanceRequest" name="getAccountBalanceRequest"/>
+            <wsdl:output message="tns:getAccountBalanceResponse" name="getAccountBalanceResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAccountStatus">
+            <wsdl:input message="tns:getAccountStatusRequest" name="getAccountStatusRequest"/>
+            <wsdl:output message="tns:getAccountStatusResponse" name="getAccountStatusResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getAccounts">
+            <wsdl:input message="tns:getAccountsRequest" name="getAccountsRequest"/>
+            <wsdl:output message="tns:getAccountsResponse" name="getAccountsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getActiveCreditCard">
+            <wsdl:input message="tns:getActiveCreditCardRequest" name="getActiveCreditCardRequest"/>
+            <wsdl:output message="tns:getActiveCreditCardResponse" name="getActiveCreditCardResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBlockedDomainListForAccount">
+            <wsdl:input message="tns:getBlockedDomainListForAccountRequest" name="getBlockedDomainListForAccountRequest"/>
+            <wsdl:output message="tns:getBlockedDomainListForAccountResponse" name="getBlockedDomainListForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getChargeAmount">
+            <wsdl:input message="tns:getChargeAmountRequest" name="getChargeAmountRequest"/>
+            <wsdl:output message="tns:getChargeAmountResponse" name="getChargeAmountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getContinentBlockListForAccount">
+            <wsdl:input message="tns:getContinentBlockListForAccountRequest" name="getContinentBlockListForAccountRequest"/>
+            <wsdl:output message="tns:getContinentBlockListForAccountResponse" name="getContinentBlockListForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="isMobileAccount">
+            <wsdl:input message="tns:isMobileAccountRequest" name="isMobileAccountRequest"/>
+            <wsdl:output message="tns:isMobileAccountResponse" name="isMobileAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setActiveCreditCard">
+            <wsdl:input message="tns:setActiveCreditCardRequest" name="setActiveCreditCardRequest"/>
+            <wsdl:output message="tns:setActiveCreditCardResponse" name="setActiveCreditCardResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setBlockedDomainListForAccount">
+            <wsdl:input message="tns:setBlockedDomainListForAccountRequest" name="setBlockedDomainListForAccountRequest"/>
+            <wsdl:output message="tns:setBlockedDomainListForAccountResponse" name="setBlockedDomainListForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setChargeAmount">
+            <wsdl:input message="tns:setChargeAmountRequest" name="setChargeAmountRequest"/>
+            <wsdl:output message="tns:setChargeAmountResponse" name="setChargeAmountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setContinentBlockListForAccount">
+            <wsdl:input message="tns:setContinentBlockListForAccountRequest" name="setContinentBlockListForAccountRequest"/>
+            <wsdl:output message="tns:setContinentBlockListForAccountResponse" name="setContinentBlockListForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateAccount">
+            <wsdl:input message="tns:updateAccountRequest" name="updateAccountRequest"/>
+            <wsdl:output message="tns:updateAccountResponse" name="updateAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForAccount">
+            <wsdl:input message="tns:updateStatusForAccountRequest" name="updateStatusForAccountRequest"/>
+            <wsdl:output message="tns:updateStatusForAccountResponse" name="updateStatusForAccountResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AccountServiceHttpBinding" type="tns:AccountService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="addMobileAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addMobileAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addMobileAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="addMoney">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addMoneyRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addMoneyResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteBlockedDomainListForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteBlockedDomainListForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteBlockedDomainListForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteContinentBlockListFromAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteContinentBlockListFromAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteContinentBlockListFromAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getAccountBalance">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getAccountBalanceRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAccountBalanceResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getAccountStatus">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getAccountStatusRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAccountStatusResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getAccounts">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getAccountsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAccountsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getActiveCreditCard">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getActiveCreditCardRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getActiveCreditCardResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getBlockedDomainListForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getBlockedDomainListForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBlockedDomainListForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getChargeAmount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getChargeAmountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getChargeAmountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getContinentBlockListForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getContinentBlockListForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getContinentBlockListForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="isMobileAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="isMobileAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="isMobileAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setActiveCreditCard">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setActiveCreditCardRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setActiveCreditCardResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setBlockedDomainListForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setBlockedDomainListForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setBlockedDomainListForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setChargeAmount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setChargeAmountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setChargeAmountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setContinentBlockListForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setContinentBlockListForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setContinentBlockListForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForAccount">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateStatusForAccountRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateStatusForAccountResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AccountServiceService">
+        <wsdl:port binding="tns:AccountServiceHttpBinding" name="AccountService">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6/AccountService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

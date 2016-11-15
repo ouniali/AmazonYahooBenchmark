@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		  xmlns:wsa="http://www.w3.org/2005/08/addressing"
+		  xmlns:tns="http://queue.amazonaws.com/doc/2007-05-01/"
+		  targetNamespace="http://queue.amazonaws.com/doc/2007-05-01/"
+		  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		  xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+		  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+		  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		  name="QueueService">
+  <wsp:Policy wsu:Id="CertificateOverTransportPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:RequireThumbprintReference />
+                <sp:WssX509V3Token10 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportRefKeyIdentifier />
+            <sp:MustSupportRefIssuerSerial />
+          </wsp:Policy>
+        </sp:Wss10>
+        <wsap:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+	   xmlns:tns="http://queue.amazonaws.com/doc/2007-05-01/"
+	   targetNamespace="http://queue.amazonaws.com/doc/2007-05-01/"
+	   elementFormDefault="qualified">
+
+  <xs:element name="ResponseStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusCode" type="xs:string" minOccurs="1"/>
+        <xs:element name="Message"    type="xs:string" minOccurs="0"/>  
+        <xs:element name="RequestId"  type="xs:string" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AttributedValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Attribute"  type="xs:string" minOccurs="1"/>
+        <xs:element name="Value"      type="xs:string" minOccurs="1"/>  
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--******************************************************************
+      ** QueueService Interface
+    -->
+  
+  <xs:element name="ListQueues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueNamePrefix" type="xs:NCName" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ListQueuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueUrl" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="CreateQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueName" type="xs:NCName" minOccurs="0"/>
+        <xs:element name="DefaultVisibilityTimeout"
+                    type="xs:integer" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueUrl" type="xs:anyURI" minOccurs="0"/>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Messaging interface
+    -->
+
+  <xs:element name="MessageId" type="xs:string"/>
+
+  <xs:element name="MessageBody" type="xs:string"/>
+
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:MessageId"  minOccurs="1"/>
+        <xs:element ref="tns:MessageBody" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageBody" type="xs:string" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string" minOccurs="1"/>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ReceiveMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NumberOfMessages" type="xs:integer" minOccurs="0"/>
+        <xs:element name="VisibilityTimeout" type="xs:integer" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ReceiveMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Message" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="PeekMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PeekMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Message" minOccurs="0"/>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ChangeMessageVisibility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string" minOccurs="1" />
+        <xs:element name="VisibilityTimeout" type="xs:integer" minOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ChangeMessageVisibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="DeleteMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="DeleteQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ForceDeletion" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="SetQueueAttributes">
+    <xs:complexType>
+      <xs:sequence>
+	<xs:element ref="tns:AttributedValue" minOccurs="1" maxOccurs="100" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="SetQueueAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetQueueAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Attribute" type="xs:string" minOccurs="0" maxOccurs="100" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetQueueAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:AttributedValue" minOccurs="1" maxOccurs="100" />
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Access Control interface
+    -->
+
+
+  <xs:complexType name="Grantee">
+  	<xs:element name="Credential" type="xs:boolean"/>
+  </xs:complexType>
+  <xs:complexType name="AmazonCustomerByEmail">
+    <xs:complexContent>
+      <xs:extension base="tns:User">
+        <xs:sequence>
+          <xs:element name="EmailAddress" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AmazonCredential">
+    <xs:complexContent>
+      <xs:extension base="tns:User">
+        <xs:sequence>
+          <xs:element name="Credential" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CanonicalUser">
+    <xs:complexContent>
+      <xs:extension base="tns:User">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string"/>
+          <xs:element name="DisplayName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>   
+  <xs:complexType name="User" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:Grantee"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Group">
+    <xs:complexContent>
+      <xs:extension base="tns:Grantee">
+        <xs:sequence>
+          <xs:element name="URI" type="xs:anyURI"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Grant">
+    <xs:sequence>
+      <xs:element name="Grantee" type="tns:Grantee" minOccurs="0"/>
+      <xs:element name="Permission" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="AddGrant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Grantee" type="tns:Grantee"/>
+      <xs:element name="Permission" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AddGrantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>			
+  </xs:element>
+
+  <xs:element name="RemoveGrant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Grantee" type="tns:Grantee"/>
+        <xs:element name="Permission" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="RemoveGrantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ListGrants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Grantee" type="tns:Grantee" minOccurs="0"/>
+      <xs:element name="Permission" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListGrantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="GrantList" type="tns:Grant" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+    <xs:element name="SetVisibilityTimeout">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="VisibilityTimeout" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="SetVisibilityTimeoutResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tns:ResponseStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetVisibilityTimeout">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="VisibilityTimeout" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetVisibilityTimeoutResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="VisibilityTimeout" type="xs:integer"/>
+                <xs:element ref="tns:ResponseStatus" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
+  </wsdl:types>
+  
+  <wsdl:message name="ListQueuesRequestMsg">
+    <wsdl:part name="body" element="tns:ListQueues"/>
+  </wsdl:message>
+  <wsdl:message name="ListQueuesResponseMsg">
+    <wsdl:part name="body" element="tns:ListQueuesResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="CreateQueueRequestMsg">
+    <wsdl:part name="body" element="tns:CreateQueue"/>
+  </wsdl:message>
+  <wsdl:message name="CreateQueueResponseMsg">
+    <wsdl:part name="body" element="tns:CreateQueueResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="SendMessageRequestMsg">
+    <wsdl:part name="body" element="tns:SendMessage"/>
+  </wsdl:message>
+  <wsdl:message name="SendMessageResponseMsg">
+    <wsdl:part name="body" element="tns:SendMessageResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="ReceiveMessageRequestMsg">
+    <wsdl:part name="body" element="tns:ReceiveMessage"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveMessageResponseMsg">
+    <wsdl:part name="body" element="tns:ReceiveMessageResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="PeekMessageRequestMsg">
+    <wsdl:part name="body" element="tns:PeekMessage"/>
+  </wsdl:message>
+  <wsdl:message name="PeekMessageResponseMsg">
+    <wsdl:part name="body" element="tns:PeekMessageResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="DeleteMessageRequestMsg">
+    <wsdl:part name="body" element="tns:DeleteMessage"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageResponseMsg">
+    <wsdl:part name="body" element="tns:DeleteMessageResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="DeleteQueueRequestMsg">
+    <wsdl:part name="body" element="tns:DeleteQueue"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteQueueResponseMsg">
+    <wsdl:part name="body" element="tns:DeleteQueueResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="SetVisibilityTimeoutRequestMsg">
+    <wsdl:part name="body" element="tns:SetVisibilityTimeout"/>
+  </wsdl:message>
+  <wsdl:message name="SetVisibilityTimeoutResponseMsg">
+    <wsdl:part name="body" element="tns:SetVisibilityTimeoutResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="GetVisibilityTimeoutRequestMsg">
+    <wsdl:part name="body" element="tns:GetVisibilityTimeout"/>
+  </wsdl:message>
+  <wsdl:message name="GetVisibilityTimeoutResponseMsg">
+    <wsdl:part name="body" element="tns:GetVisibilityTimeoutResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ChangeMessageVisibilityRequestMsg">
+    <wsdl:part name="body" element="tns:ChangeMessageVisibility"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMessageVisibilityResponseMsg">
+    <wsdl:part name="body" element="tns:ChangeMessageVisibilityResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="SetQueueAttributesRequestMsg">
+    <wsdl:part name="body" element="tns:SetQueueAttributes"/>
+  </wsdl:message>
+  <wsdl:message name="SetQueueAttributesResponseMsg">
+    <wsdl:part name="body" element="tns:SetQueueAttributesResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="GetQueueAttributesRequestMsg">
+    <wsdl:part name="body" element="tns:GetQueueAttributes"/>
+  </wsdl:message>
+  <wsdl:message name="GetQueueAttributesResponseMsg">
+    <wsdl:part name="body" element="tns:GetQueueAttributesResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="AddGrantRequestMsg">
+    <wsdl:part name="body" element="tns:AddGrant"/>
+  </wsdl:message>
+  <wsdl:message name="AddGrantResponseMsg">
+    <wsdl:part name="body" element="tns:AddGrantResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="RemoveGrantRequestMsg">
+    <wsdl:part name="body" element="tns:RemoveGrant"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveGrantResponseMsg">
+    <wsdl:part name="body" element="tns:RemoveGrantResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="ListGrantsRequestMsg">
+    <wsdl:part name="body" element="tns:ListGrants"/>
+  </wsdl:message>
+  <wsdl:message name="ListGrantsResponseMsg">
+    <wsdl:part name="body" element="tns:ListGrantsResponse"/>
+  </wsdl:message>
+
+
+
+  <wsdl:portType name="QueueService">
+    
+    <wsdl:operation name="ListQueues">
+      <wsdl:input message="tns:ListQueuesRequestMsg"
+                  wsa:Action="ListQueues"/>
+      <wsdl:output message="tns:ListQueuesResponseMsg"
+                   wsa:Action="ListQueues:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="CreateQueue">
+      <wsdl:input message="tns:CreateQueueRequestMsg"
+                  wsa:Action="CreateQueue"/>
+      <wsdl:output message="tns:CreateQueueResponseMsg"
+                   wsa:Action="CreateQueue:Response"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  <wsdl:portType name="MessageQueue">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="tns:SendMessageRequestMsg"
+                  wsa:Action="SendMessage"/>
+      <wsdl:output message="tns:SendMessageResponseMsg"
+                   wsa:Action="SendMessage:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="ReceiveMessage">
+      <wsdl:input message="tns:ReceiveMessageRequestMsg"
+                  wsa:Action="ReceiveMessage"/>
+      <wsdl:output message="tns:ReceiveMessageResponseMsg"
+                   wsa:Action="ReceiveMessage:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="PeekMessage">
+      <wsdl:input message="tns:PeekMessageRequestMsg"
+                  wsa:Action="PeekMessage"/>
+      <wsdl:output message="tns:PeekMessageResponseMsg"
+                   wsa:Action="PeekMessage:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input message="tns:DeleteMessageRequestMsg"
+                  wsa:Action="DeleteMessage"/>
+      <wsdl:output message="tns:DeleteMessageResponseMsg"
+                   wsa:Action="DeleteMessage:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="DeleteQueue">
+      <wsdl:input message="tns:DeleteQueueRequestMsg"
+                  wsa:Action="DeleteQueue"/>
+      <wsdl:output message="tns:DeleteQueueResponseMsg"
+                   wsa:Action="DeleteQueue:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="SetQueueAttributes">
+      <wsdl:input
+         message="tns:SetQueueAttributesRequestMsg"
+         wsa:Action="SetQueueAttributes"/>
+      <wsdl:output
+         message="tns:SetQueueAttributesResponseMsg"
+         wsa:Action="SetQueueAttributes:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="GetQueueAttributes">
+      <wsdl:input
+         message="tns:GetQueueAttributesRequestMsg"
+         wsa:Action="GetQueueAttributes"/>
+      <wsdl:output
+         message="tns:GetQueueAttributesResponseMsg"
+         wsa:Action="GetQueueAttributes:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetVisibilityTimeout">
+      <wsdl:input
+         message="tns:SetVisibilityTimeoutRequestMsg"
+         wsa:Action="SetVisibilityTimeout"/>
+      <wsdl:output
+         message="tns:SetVisibilityTimeoutResponseMsg"
+         wsa:Action="SetVisibilityTimeout:Response"/>
+    </wsdl:operation>
+    
+    <wsdl:operation name="GetVisibilityTimeout">
+      <wsdl:input
+         message="tns:GetVisibilityTimeoutRequestMsg"
+         wsa:Action="GetVisibilityTimeout"/>
+      <wsdl:output
+         message="tns:GetVisibilityTimeoutResponseMsg"
+         wsa:Action="GetVisibilityTimeout:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ChangeMessageVisibility">
+      <wsdl:input
+         message="tns:ChangeMessageVisibilityRequestMsg"
+         wsa:Action="ChangeMessageVisibility"/>
+      <wsdl:output
+         message="tns:ChangeMessageVisibilityResponseMsg"
+         wsa:Action="ChangeMessageVisibility:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="AddGrant">
+      <wsdl:input
+         message="tns:AddGrantRequestMsg"
+         wsa:Action="AddGrant"/>
+      <wsdl:output
+         message="tns:AddGrantResponseMsg"
+         wsa:Action="AddGrant:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RemoveGrant">
+      <wsdl:input
+         message="tns:RemoveGrantRequestMsg"
+         wsa:Action="RemoveGrant"/>
+      <wsdl:output
+         message="tns:RemoveGrantResponseMsg"
+         wsa:Action="RemoveGrant:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ListGrants">
+      <wsdl:input
+         message="tns:ListGrantsRequestMsg"
+         wsa:Action="ListGrants"/>
+      <wsdl:output
+         message="tns:ListGrantsResponseMsg"
+         wsa:Action="ListGrants:Response"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+  
+  <wsdl:binding name="QueueService" type="tns:QueueService">
+    <soap:binding style="document"
+		  transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="ListQueues">
+      <soap:operation soapAction="ListQueues"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="CreateQueue">
+      <soap:operation soapAction="CreateQueue"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+  <wsdl:binding name="QueueServiceHttps" type="tns:QueueService">
+    <wsp:PolicyReference URI="#CertificateOverTransportPolicy" />
+    <soap12:binding style="document"
+		    transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="ListQueues">
+      <soap12:operation soapAction="ListQueues"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateQueue">
+      <soap12:operation soapAction="CreateQueue"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+  
+  
+  <wsdl:binding name="MessageQueue" type="tns:MessageQueue">
+    <soap:binding style="document"
+		  transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="SendMessage"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="ReceiveMessage">
+      <soap:operation soapAction="ReceiveMessage"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="PeekMessage">
+      <soap:operation soapAction="PeekMessage"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="DeleteMessage">
+      <soap:operation soapAction="DeleteMessage"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="DeleteQueue">
+      <soap:operation soapAction="DeleteQueue"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="SetQueueAttributes">
+      <soap:operation soapAction="SetQueueAttributes"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="GetQueueAttributes">
+      <soap:operation soapAction="GetQueueAttributes"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetVisibilityTimeout">
+      <soap:operation soapAction="SetVisibilityTimeout"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="GetVisibilityTimeout">
+      <soap:operation soapAction="GetVisibilityTimeout"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ChangeMessageVisibility">
+      <soap:operation soapAction="ChangeMessageVisibility"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="AddGrant">
+      <soap:operation soapAction="AddGrant"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RemoveGrant">
+      <soap:operation soapAction="RemoveGrant"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ListGrants">
+      <soap:operation soapAction="ListGrants"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+
+  <wsdl:binding name="MessageQueueHttps" type="tns:MessageQueue">
+    <wsp:PolicyReference URI="#CertificateOverTransportPolicy" /> 
+    <soap12:binding style="document"
+		    transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="SendMessage"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ReceiveMessage">
+      <soap12:operation soapAction="ReceiveMessage"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="PeekMessage">
+      <soap12:operation soapAction="PeekMessage"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteMessage">
+      <soap12:operation soapAction="DeleteMessage"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteQueue">
+      <soap12:operation soapAction="DeleteQueue"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetQueueAttributes">
+      <soap12:operation soapAction="SetQueueAttributes"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="GetQueueAttributes">
+      <soap12:operation soapAction="GetQueueAttributes"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="SetVisibilityTimeout">
+      <soap12:operation soapAction="SetVisibilityTimeout"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="GetVisibilityTimeout">
+      <soap12:operation soapAction="GetVisibilityTimeout"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ChangeMessageVisibility">
+      <soap12:operation soapAction="ChangeMessageVisibility"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="AddGrant">
+      <soap12:operation soapAction="AddGrant"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RemoveGrant">
+      <soap12:operation soapAction="RemoveGrant"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ListGrants">
+      <soap12:operation soapAction="ListGrants"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>  
+  
+  
+  <wsdl:service name="QueueService">
+    <wsdl:port name="QueueService" binding="tns:QueueService">
+      <soap:address location="http://queue.amazonaws.com"/>
+    </wsdl:port>
+    <wsdl:port name="QueueServiceHttps" binding="tns:QueueServiceHttps">
+
+      <soap:address location="https://queue.amazonaws.com"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+  <wsdl:service name="MessageQueue">
+    <wsdl:port name="MessageQueue" binding="tns:MessageQueue">
+      <soap:address location="http://queue.amazonaws.com"/>
+    </wsdl:port>
+    <wsdl:port name="MessageQueueHttps" binding="tns:MessageQueueHttps">
+
+      <soap:address location="https://queue.amazonaws.com"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+</wsdl:definitions>

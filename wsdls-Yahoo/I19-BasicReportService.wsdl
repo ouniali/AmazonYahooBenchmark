@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://marketing.ews.yahooapis.com/V6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <tns:version>6.1.0</tns:version>
+                </xsd:appinfo>
+            </xsd:annotation>
+            <xsd:element name="commandGroup">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="license">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="masterAccountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="quotaUsedForThisRequest">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="remainingQuota">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="timeTakenMillis">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ApiFault" type="tns:ApiFault"/>
+            <xsd:element name="addReportRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportRequest" nillable="true" type="tns:BasicReportRequest"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="fileOutputFormat" nillable="true" type="tns:FileOutputFormat"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addReportRequestResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteReport">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteReportResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="deleteReports">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteReportsResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getBooksClosedTime">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportType" nillable="true" type="tns:BasicReportType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getBooksClosedTimeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:dateTime"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptInReportingForAdGroups">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptInReportingForAdGroupsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfOptInAdGroupResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptInReportingForCampaigns">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptInReportingForCampaignsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfOptInCampaignResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportDownloadUrl">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportDownloadUrlResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ReportDownloadInfo"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportDownloadUrls">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportDownloadUrlsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfReportDownloadInfo"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportList">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="onlyCompleted" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReportListResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfReportInfo"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="isBooksClosed">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="reportRequest" nillable="true" type="tns:BasicReportRequest"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="isBooksClosedResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfPassword">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfUsername">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="setOptInReportingForAdGroups">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="optInReporting" nillable="true" type="tns:OptInReporting"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setOptInReportingForAdGroupsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfOptInAdGroupResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setOptInReportingForCampaigns">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="optInReporting" nillable="true" type="tns:OptInReporting"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setOptInReportingForCampaignsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfOptInCampaignResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:simpleType name="BasicReportType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="AdSummaryByDay"/>
+                    <xsd:enumeration value="ClickFilterCampaignSummary"/>
+                    <xsd:enumeration value="DemoGenderAdGroupSummary"/>
+                    <xsd:enumeration value="NetworkDistributionKeywordSummaryByDay"/>
+                    <xsd:enumeration value="ClickFilterAccountSummaryByDay"/>
+                    <xsd:enumeration value="AdvancedAdPerformanceByDay"/>
+                    <xsd:enumeration value="ClickFilterAccountSummary"/>
+                    <xsd:enumeration value="AdSummary"/>
+                    <xsd:enumeration value="AccountSummary"/>
+                    <xsd:enumeration value="AdGroupSummary"/>
+                    <xsd:enumeration value="AdGroupSummaryByDay"/>
+                    <xsd:enumeration value="GeoLocationAdGroupSummary"/>
+                    <xsd:enumeration value="AdvancedAdKeywordPerformance"/>
+                    <xsd:enumeration value="MultiChannelAdGroup"/>
+                    <xsd:enumeration value="DemoAgeAdGroupSummary"/>
+                    <xsd:enumeration value="NetworkDistributionAdGroupSummary"/>
+                    <xsd:enumeration value="MultiChannelMarketingActivityByDay"/>
+                    <xsd:enumeration value="DemoAgeAdGroupSummaryByDay"/>
+                    <xsd:enumeration value="DailySummary"/>
+                    <xsd:enumeration value="GeoLocationSummaryByDay"/>
+                    <xsd:enumeration value="DayPartingAdGroupSummary"/>
+                    <xsd:enumeration value="NetworkDistributionKeywordSummary"/>
+                    <xsd:enumeration value="KeywordSummary"/>
+                    <xsd:enumeration value="DemoAgeCampaignSummaryByDay"/>
+                    <xsd:enumeration value="AdKeywordSummary"/>
+                    <xsd:enumeration value="NetworkDistributionAdGroupSummaryByDay"/>
+                    <xsd:enumeration value="MultiChannelCampaign"/>
+                    <xsd:enumeration value="AdKeywordSummaryByDay"/>
+                    <xsd:enumeration value="AccountSummaryByDay"/>
+                    <xsd:enumeration value="DemoGenderCampaignSummary"/>
+                    <xsd:enumeration value="MultiChannelCampaignByDay"/>
+                    <xsd:enumeration value="CampaignSummaryByDay"/>
+                    <xsd:enumeration value="DemoGenderAdGroupSummaryByDay"/>
+                    <xsd:enumeration value="MultiChannelAccountByDay"/>
+                    <xsd:enumeration value="NetworkDistributionCampaignSummaryByDay"/>
+                    <xsd:enumeration value="AdvancedAdPerformance"/>
+                    <xsd:enumeration value="MultiChannelAccount"/>
+                    <xsd:enumeration value="MultiChannelMarketingActivity"/>
+                    <xsd:enumeration value="GeoLocationSummary"/>
+                    <xsd:enumeration value="NetworkDistributionCampaignSummary"/>
+                    <xsd:enumeration value="AdDeliverySummaryByDay"/>
+                    <xsd:enumeration value="MultiChannelDaily"/>
+                    <xsd:enumeration value="DayPartingCampaignSummaryByDay"/>
+                    <xsd:enumeration value="DayPartingAdGroupSummaryByDay"/>
+                    <xsd:enumeration value="CampaignSummary"/>
+                    <xsd:enumeration value="GeoLocationAdGroupSummaryByDay"/>
+                    <xsd:enumeration value="DemoGenderCampaignSummaryByDay"/>
+                    <xsd:enumeration value="AdvancedAdKeywordPerformanceByDay"/>
+                    <xsd:enumeration value="AdDeliverySummary"/>
+                    <xsd:enumeration value="KeywordSummaryByDay"/>
+                    <xsd:enumeration value="BillingTransactionDetail"/>
+                    <xsd:enumeration value="DemoAgeCampaignSummary"/>
+                    <xsd:enumeration value="ClickFilterCampaignSummaryByDay"/>
+                    <xsd:enumeration value="MultiChannelAdGroupByDay"/>
+                    <xsd:enumeration value="DayPartingCampaignSummary"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="DateRange">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Last30Days"/>
+                    <xsd:enumeration value="LastCalendarWeek"/>
+                    <xsd:enumeration value="MonthToDate"/>
+                    <xsd:enumeration value="Yesterday"/>
+                    <xsd:enumeration value="YearToDate"/>
+                    <xsd:enumeration value="LastBusinessWeek"/>
+                    <xsd:enumeration value="Last7Days"/>
+                    <xsd:enumeration value="LastCalendarMonth"/>
+                    <xsd:enumeration value="LastCalendarQuarter"/>
+                    <xsd:enumeration value="WeekToDate"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="FileOutputType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="CSV"/>
+                    <xsd:enumeration value="XML"/>
+                    <xsd:enumeration value="TSV"/>
+                    <xsd:enumeration value="CSV_EXCEL"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="OptInReporting">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="DemographicReporting"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ReportStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Completed"/>
+                    <xsd:enumeration value="Error"/>
+                    <xsd:enumeration value="Deleted"/>
+                    <xsd:enumeration value="Pending"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="ApiFault">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfError">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Error" nillable="true" type="tns:Error"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfLong">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="long" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfOptInAdGroupResponse">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="OptInAdGroupResponse" nillable="true" type="tns:OptInAdGroupResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfOptInCampaignResponse">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="OptInCampaignResponse" nillable="true" type="tns:OptInCampaignResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfOptInStatus">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="OptInStatus" nillable="true" type="tns:OptInStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfReportDownloadInfo">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="ReportDownloadInfo" nillable="true" type="tns:ReportDownloadInfo"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfReportInfo">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="ReportInfo" nillable="true" type="tns:ReportInfo"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BasicReportRequest">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="dateRange" nillable="true" type="tns:DateRange"/>
+                    <xsd:element minOccurs="0" name="endDate" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="reportName" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="reportType" nillable="true" type="tns:BasicReportType"/>
+                    <xsd:element minOccurs="0" name="startDate" nillable="true" type="xsd:dateTime"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Error">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="FileOutputFormat">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="fileOutputType" nillable="true" type="tns:FileOutputType"/>
+                    <xsd:element minOccurs="0" name="zipped" nillable="true" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="OptInAdGroupResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="adGroupID" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="optInStatus" nillable="true" type="tns:ArrayOfOptInStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="OptInCampaignResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="campaignID" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="optInStatus" nillable="true" type="tns:ArrayOfOptInStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="OptInStatus">
+                <xsd:sequence>
+                    <xsd:element name="optInEnabled" type="xsd:boolean"/>
+                    <xsd:element name="optInReporting" type="tns:OptInReporting"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ReportDownloadInfo">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="downloadUrl" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="fileOutputFormat" nillable="true" type="tns:FileOutputFormat"/>
+                    <xsd:element minOccurs="0" name="reportID" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="reportStatus" nillable="true" type="tns:ReportStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ReportInfo">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="createDate" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="reportID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="reportName" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="status" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        
+        
+            <element name="Security" type="wsse:Security"/>
+            <complexType name="Security">
+                <sequence>
+                    <element name="UsernameToken" type="wsse:UsernameToken"/>
+                </sequence>
+            </complexType>
+            <complexType name="UsernameToken">
+                <sequence>
+                    <element name="Username" type="string"/>
+                    <element name="Password" type="string"/>
+                </sequence>
+            </complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ApiFault">
+        <wsdl:part element="tns:ApiFault" name="ApiFault"/>
+    </wsdl:message>
+    <wsdl:message name="Security">
+        <wsdl:part element="wsse:Security" name="Security"/>
+    </wsdl:message>
+    <wsdl:message name="addReportRequestRequest">
+        <wsdl:part element="tns:addReportRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addReportRequestResponse">
+        <wsdl:part element="tns:addReportRequestResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="commandGroup">
+        <wsdl:part element="tns:commandGroup" name="commandGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteReportRequest">
+        <wsdl:part element="tns:deleteReport" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteReportResponse">
+        <wsdl:part element="tns:deleteReportResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteReportsRequest">
+        <wsdl:part element="tns:deleteReports" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteReportsResponse">
+        <wsdl:part element="tns:deleteReportsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBooksClosedTimeRequest">
+        <wsdl:part element="tns:getBooksClosedTime" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getBooksClosedTimeResponse">
+        <wsdl:part element="tns:getBooksClosedTimeResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptInReportingForAdGroupsRequest">
+        <wsdl:part element="tns:getOptInReportingForAdGroups" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptInReportingForAdGroupsResponse">
+        <wsdl:part element="tns:getOptInReportingForAdGroupsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptInReportingForCampaignsRequest">
+        <wsdl:part element="tns:getOptInReportingForCampaigns" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptInReportingForCampaignsResponse">
+        <wsdl:part element="tns:getOptInReportingForCampaignsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportDownloadUrlRequest">
+        <wsdl:part element="tns:getReportDownloadUrl" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportDownloadUrlResponse">
+        <wsdl:part element="tns:getReportDownloadUrlResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportDownloadUrlsRequest">
+        <wsdl:part element="tns:getReportDownloadUrls" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportDownloadUrlsResponse">
+        <wsdl:part element="tns:getReportDownloadUrlsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportListRequest">
+        <wsdl:part element="tns:getReportList" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReportListResponse">
+        <wsdl:part element="tns:getReportListResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="isBooksClosedRequest">
+        <wsdl:part element="tns:isBooksClosed" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="isBooksClosedResponse">
+        <wsdl:part element="tns:isBooksClosedResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="license">
+        <wsdl:part element="tns:license" name="license"/>
+    </wsdl:message>
+    <wsdl:message name="masterAccountID">
+        <wsdl:part element="tns:masterAccountID" name="masterAccountID"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfPassword">
+        <wsdl:part element="tns:onBehalfOfPassword" name="onBehalfOfPassword"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfUsername">
+        <wsdl:part element="tns:onBehalfOfUsername" name="onBehalfOfUsername"/>
+    </wsdl:message>
+    <wsdl:message name="quotaUsedForThisRequest">
+        <wsdl:part element="tns:quotaUsedForThisRequest" name="quotaUsedForThisRequest"/>
+    </wsdl:message>
+    <wsdl:message name="remainingQuota">
+        <wsdl:part element="tns:remainingQuota" name="remainingQuota"/>
+    </wsdl:message>
+    <wsdl:message name="setOptInReportingForAdGroupsRequest">
+        <wsdl:part element="tns:setOptInReportingForAdGroups" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setOptInReportingForAdGroupsResponse">
+        <wsdl:part element="tns:setOptInReportingForAdGroupsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setOptInReportingForCampaignsRequest">
+        <wsdl:part element="tns:setOptInReportingForCampaigns" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setOptInReportingForCampaignsResponse">
+        <wsdl:part element="tns:setOptInReportingForCampaignsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="timeTakenMillis">
+        <wsdl:part element="tns:timeTakenMillis" name="timeTakenMillis"/>
+    </wsdl:message>
+    <wsdl:portType name="BasicReportService">
+        <wsdl:operation name="addReportRequest">
+            <wsdl:input message="tns:addReportRequestRequest" name="addReportRequestRequest"/>
+            <wsdl:output message="tns:addReportRequestResponse" name="addReportRequestResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteReport">
+            <wsdl:input message="tns:deleteReportRequest" name="deleteReportRequest"/>
+            <wsdl:output message="tns:deleteReportResponse" name="deleteReportResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteReports">
+            <wsdl:input message="tns:deleteReportsRequest" name="deleteReportsRequest"/>
+            <wsdl:output message="tns:deleteReportsResponse" name="deleteReportsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBooksClosedTime">
+            <wsdl:input message="tns:getBooksClosedTimeRequest" name="getBooksClosedTimeRequest"/>
+            <wsdl:output message="tns:getBooksClosedTimeResponse" name="getBooksClosedTimeResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getOptInReportingForAdGroups">
+            <wsdl:input message="tns:getOptInReportingForAdGroupsRequest" name="getOptInReportingForAdGroupsRequest"/>
+            <wsdl:output message="tns:getOptInReportingForAdGroupsResponse" name="getOptInReportingForAdGroupsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getOptInReportingForCampaigns">
+            <wsdl:input message="tns:getOptInReportingForCampaignsRequest" name="getOptInReportingForCampaignsRequest"/>
+            <wsdl:output message="tns:getOptInReportingForCampaignsResponse" name="getOptInReportingForCampaignsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReportDownloadUrl">
+            <wsdl:input message="tns:getReportDownloadUrlRequest" name="getReportDownloadUrlRequest"/>
+            <wsdl:output message="tns:getReportDownloadUrlResponse" name="getReportDownloadUrlResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReportDownloadUrls">
+            <wsdl:input message="tns:getReportDownloadUrlsRequest" name="getReportDownloadUrlsRequest"/>
+            <wsdl:output message="tns:getReportDownloadUrlsResponse" name="getReportDownloadUrlsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReportList">
+            <wsdl:input message="tns:getReportListRequest" name="getReportListRequest"/>
+            <wsdl:output message="tns:getReportListResponse" name="getReportListResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="isBooksClosed">
+            <wsdl:input message="tns:isBooksClosedRequest" name="isBooksClosedRequest"/>
+            <wsdl:output message="tns:isBooksClosedResponse" name="isBooksClosedResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setOptInReportingForAdGroups">
+            <wsdl:input message="tns:setOptInReportingForAdGroupsRequest" name="setOptInReportingForAdGroupsRequest"/>
+            <wsdl:output message="tns:setOptInReportingForAdGroupsResponse" name="setOptInReportingForAdGroupsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setOptInReportingForCampaigns">
+            <wsdl:input message="tns:setOptInReportingForCampaignsRequest" name="setOptInReportingForCampaignsRequest"/>
+            <wsdl:output message="tns:setOptInReportingForCampaignsResponse" name="setOptInReportingForCampaignsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicReportServiceHttpBinding" type="tns:BasicReportService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addReportRequest">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addReportRequestRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addReportRequestResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteReport">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteReportRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteReportResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteReports">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteReportsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteReportsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getBooksClosedTime">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getBooksClosedTimeRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBooksClosedTimeResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getOptInReportingForAdGroups">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getOptInReportingForAdGroupsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getOptInReportingForAdGroupsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getOptInReportingForCampaigns">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getOptInReportingForCampaignsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getOptInReportingForCampaignsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getReportDownloadUrl">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getReportDownloadUrlRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getReportDownloadUrlResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getReportDownloadUrls">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getReportDownloadUrlsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getReportDownloadUrlsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getReportList">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getReportListRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getReportListResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="isBooksClosed">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="isBooksClosedRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="isBooksClosedResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setOptInReportingForAdGroups">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setOptInReportingForAdGroupsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setOptInReportingForAdGroupsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setOptInReportingForCampaigns">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setOptInReportingForCampaignsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setOptInReportingForCampaignsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="BasicReportServiceService">
+        <wsdl:port binding="tns:BasicReportServiceHttpBinding" name="BasicReportService">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6/BasicReportService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

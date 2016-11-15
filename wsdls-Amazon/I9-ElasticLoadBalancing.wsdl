@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<wsdl:definitions
+  targetNamespace="http://elasticloadbalancing.amazonaws.com/doc/2009-11-25/"
+  xmlns:tns="http://elasticloadbalancing.amazonaws.com/doc/2009-11-25/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:wsa="http://www.w3.org/2005/08/addressing/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <wsdl:types>
+
+    <xs:schema
+      targetNamespace="http://elasticloadbalancing.amazonaws.com/doc/2009-11-25/"
+      elementFormDefault="qualified">
+
+      <xs:element name="ResponseMetadata">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RequestId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="Error">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Type">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Receiver"/>
+                  <xs:enumeration value="Sender"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Code" type="xs:string"/>
+            <xs:element name="Message" type="xs:string"/>
+            <xs:element name="Detail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute namespace="##other" processContents="lax"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ErrorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Error" maxOccurs="unbounded"/>
+            <xs:element name="RequestId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="SetLoadBalancerPoliciesOfListener">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="LoadBalancerPort" type="xs:integer"/>
+            <xs:element name="PolicyNames" type="tns:PolicyNames"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="SetLoadBalancerPoliciesOfListenerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:SetLoadBalancerPoliciesOfListenerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="SetLoadBalancerPoliciesOfListenerResult">
+        <xs:complexType>
+          <xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeLoadBalancers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerNames" type="tns:LoadBalancerNames" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeLoadBalancersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeLoadBalancersResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeLoadBalancersResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerDescriptions" type="tns:LoadBalancerDescriptions" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateAppCookieStickinessPolicy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="PolicyName" type="xs:string"/>
+            <xs:element name="CookieName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateAppCookieStickinessPolicyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateAppCookieStickinessPolicyResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateAppCookieStickinessPolicyResult">
+        <xs:complexType>
+          <xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DisableAvailabilityZonesForLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DisableAvailabilityZonesForLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DisableAvailabilityZonesForLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DisableAvailabilityZonesForLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeInstanceHealth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeInstanceHealthResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeInstanceHealthResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeInstanceHealthResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="InstanceStates" type="tns:InstanceStates" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="Listeners" type="tns:Listeners"/>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DNSName" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RegisterInstancesWithLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="Instances" type="tns:Instances"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RegisterInstancesWithLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RegisterInstancesWithLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RegisterInstancesWithLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeregisterInstancesFromLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="Instances" type="tns:Instances"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeregisterInstancesFromLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DeregisterInstancesFromLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeregisterInstancesFromLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DeleteLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ConfigureHealthCheck">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="HealthCheck" type="tns:HealthCheck"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ConfigureHealthCheckResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ConfigureHealthCheckResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ConfigureHealthCheckResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HealthCheck" type="tns:HealthCheck" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="EnableAvailabilityZonesForLoadBalancer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="EnableAvailabilityZonesForLoadBalancerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:EnableAvailabilityZonesForLoadBalancerResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="EnableAvailabilityZonesForLoadBalancerResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLBCookieStickinessPolicy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="PolicyName" type="xs:string"/>
+            <xs:element name="CookieExpirationPeriod" type="xs:long" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLBCookieStickinessPolicyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateLBCookieStickinessPolicyResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateLBCookieStickinessPolicyResult">
+        <xs:complexType>
+          <xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancerPolicy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string"/>
+            <xs:element name="PolicyName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancerPolicyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DeleteLoadBalancerPolicyResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteLoadBalancerPolicyResult">
+        <xs:complexType>
+          <xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:complexType name="PolicyNames">
+        <xs:sequence>
+          <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="AppCookieStickinessPolicy">
+        <xs:sequence>
+            <xs:element name="PolicyName" type="xs:string" minOccurs="0"/>
+            <xs:element name="CookieName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="LoadBalancerNames">
+        <xs:sequence>
+          <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Listeners">
+        <xs:sequence>
+          <xs:element name="member" type="tns:Listener" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="LoadBalancerDescriptions">
+        <xs:sequence>
+          <xs:element name="member" type="tns:LoadBalancerDescription" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ListenerDescription">
+        <xs:sequence>
+            <xs:element name="Listener" type="tns:Listener" minOccurs="0"/>
+            <xs:element name="PolicyNames" type="tns:PolicyNames" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="InstanceState">
+        <xs:sequence>
+            <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
+            <xs:element name="State" type="xs:string" minOccurs="0"/>
+            <xs:element name="ReasonCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="AvailabilityZones">
+        <xs:sequence>
+          <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="HealthCheckTimeout">
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="AppCookieStickinessPolicies">
+        <xs:sequence>
+          <xs:element name="member" type="tns:AppCookieStickinessPolicy" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ListenerDescriptions">
+        <xs:sequence>
+          <xs:element name="member" type="tns:ListenerDescription" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Listener">
+        <xs:sequence>
+            <xs:element name="Protocol" type="xs:string"/>
+            <xs:element name="LoadBalancerPort" type="xs:integer"/>
+            <xs:element name="InstancePort" type="tns:InstancePort"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Policies">
+        <xs:sequence>
+            <xs:element name="AppCookieStickinessPolicies" type="tns:AppCookieStickinessPolicies" minOccurs="0"/>
+            <xs:element name="LBCookieStickinessPolicies" type="tns:LBCookieStickinessPolicies" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Instances">
+        <xs:sequence>
+          <xs:element name="member" type="tns:Instance" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Instance">
+        <xs:sequence>
+            <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="HealthCheck">
+        <xs:sequence>
+            <xs:element name="Target" type="xs:string"/>
+            <xs:element name="Interval" type="tns:HealthCheckInterval"/>
+            <xs:element name="Timeout" type="tns:HealthCheckTimeout"/>
+            <xs:element name="UnhealthyThreshold" type="tns:UnhealthyThreshold"/>
+            <xs:element name="HealthyThreshold" type="tns:HealthyThreshold"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="LBCookieStickinessPolicies">
+        <xs:sequence>
+          <xs:element name="member" type="tns:LBCookieStickinessPolicy" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="InstanceStates">
+        <xs:sequence>
+          <xs:element name="member" type="tns:InstanceState" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="LoadBalancerDescription">
+        <xs:sequence>
+            <xs:element name="LoadBalancerName" type="xs:string" minOccurs="0"/>
+            <xs:element name="DNSName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ListenerDescriptions" type="tns:ListenerDescriptions" minOccurs="0"/>
+            <xs:element name="Policies" type="tns:Policies" minOccurs="0"/>
+            <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+            <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+            <xs:element name="HealthCheck" type="tns:HealthCheck" minOccurs="0"/>
+            <xs:element name="CreatedTime" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="HealthCheckInterval">
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="HealthyThreshold">
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="UnhealthyThreshold">
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="InstancePort">
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="LBCookieStickinessPolicy">
+        <xs:sequence>
+            <xs:element name="PolicyName" type="xs:string" minOccurs="0"/>
+            <xs:element name="CookieExpirationPeriod" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+    </xs:schema>
+
+  </wsdl:types>
+
+  <wsdl:message name="SetLoadBalancerPoliciesOfListenerRequestMsg">
+    <wsdl:part element="tns:SetLoadBalancerPoliciesOfListener" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="SetLoadBalancerPoliciesOfListenerResponseMsg">
+    <wsdl:part element="tns:SetLoadBalancerPoliciesOfListenerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeLoadBalancersRequestMsg">
+    <wsdl:part element="tns:DescribeLoadBalancers" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeLoadBalancersResponseMsg">
+    <wsdl:part element="tns:DescribeLoadBalancersResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateAppCookieStickinessPolicyRequestMsg">
+    <wsdl:part element="tns:CreateAppCookieStickinessPolicy" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateAppCookieStickinessPolicyResponseMsg">
+    <wsdl:part element="tns:CreateAppCookieStickinessPolicyResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DisableAvailabilityZonesForLoadBalancerRequestMsg">
+    <wsdl:part element="tns:DisableAvailabilityZonesForLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DisableAvailabilityZonesForLoadBalancerResponseMsg">
+    <wsdl:part element="tns:DisableAvailabilityZonesForLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeInstanceHealthRequestMsg">
+    <wsdl:part element="tns:DescribeInstanceHealth" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeInstanceHealthResponseMsg">
+    <wsdl:part element="tns:DescribeInstanceHealthResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateLoadBalancerRequestMsg">
+    <wsdl:part element="tns:CreateLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateLoadBalancerResponseMsg">
+    <wsdl:part element="tns:CreateLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RegisterInstancesWithLoadBalancerRequestMsg">
+    <wsdl:part element="tns:RegisterInstancesWithLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RegisterInstancesWithLoadBalancerResponseMsg">
+    <wsdl:part element="tns:RegisterInstancesWithLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeregisterInstancesFromLoadBalancerRequestMsg">
+    <wsdl:part element="tns:DeregisterInstancesFromLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeregisterInstancesFromLoadBalancerResponseMsg">
+    <wsdl:part element="tns:DeregisterInstancesFromLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteLoadBalancerRequestMsg">
+    <wsdl:part element="tns:DeleteLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteLoadBalancerResponseMsg">
+    <wsdl:part element="tns:DeleteLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ConfigureHealthCheckRequestMsg">
+    <wsdl:part element="tns:ConfigureHealthCheck" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ConfigureHealthCheckResponseMsg">
+    <wsdl:part element="tns:ConfigureHealthCheckResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="EnableAvailabilityZonesForLoadBalancerRequestMsg">
+    <wsdl:part element="tns:EnableAvailabilityZonesForLoadBalancer" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="EnableAvailabilityZonesForLoadBalancerResponseMsg">
+    <wsdl:part element="tns:EnableAvailabilityZonesForLoadBalancerResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateLBCookieStickinessPolicyRequestMsg">
+    <wsdl:part element="tns:CreateLBCookieStickinessPolicy" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateLBCookieStickinessPolicyResponseMsg">
+    <wsdl:part element="tns:CreateLBCookieStickinessPolicyResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteLoadBalancerPolicyRequestMsg">
+    <wsdl:part element="tns:DeleteLoadBalancerPolicy" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteLoadBalancerPolicyResponseMsg">
+    <wsdl:part element="tns:DeleteLoadBalancerPolicyResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:portType name="ElasticLoadBalancingPortType">
+
+    <wsdl:operation name="SetLoadBalancerPoliciesOfListener">
+      <wsdl:input message="tns:SetLoadBalancerPoliciesOfListenerRequestMsg" wsa:Action="urn:SetLoadBalancerPoliciesOfListener"/>
+      <wsdl:output message="tns:SetLoadBalancerPoliciesOfListenerResponseMsg" wsa:Action="urn:SetLoadBalancerPoliciesOfListener:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeLoadBalancers">
+      <wsdl:input message="tns:DescribeLoadBalancersRequestMsg" wsa:Action="urn:DescribeLoadBalancers"/>
+      <wsdl:output message="tns:DescribeLoadBalancersResponseMsg" wsa:Action="urn:DescribeLoadBalancers:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateAppCookieStickinessPolicy">
+      <wsdl:input message="tns:CreateAppCookieStickinessPolicyRequestMsg" wsa:Action="urn:CreateAppCookieStickinessPolicy"/>
+      <wsdl:output message="tns:CreateAppCookieStickinessPolicyResponseMsg" wsa:Action="urn:CreateAppCookieStickinessPolicy:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DisableAvailabilityZonesForLoadBalancer">
+      <wsdl:input message="tns:DisableAvailabilityZonesForLoadBalancerRequestMsg" wsa:Action="urn:DisableAvailabilityZonesForLoadBalancer"/>
+      <wsdl:output message="tns:DisableAvailabilityZonesForLoadBalancerResponseMsg" wsa:Action="urn:DisableAvailabilityZonesForLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeInstanceHealth">
+      <wsdl:input message="tns:DescribeInstanceHealthRequestMsg" wsa:Action="urn:DescribeInstanceHealth"/>
+      <wsdl:output message="tns:DescribeInstanceHealthResponseMsg" wsa:Action="urn:DescribeInstanceHealth:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateLoadBalancer">
+      <wsdl:input message="tns:CreateLoadBalancerRequestMsg" wsa:Action="urn:CreateLoadBalancer"/>
+      <wsdl:output message="tns:CreateLoadBalancerResponseMsg" wsa:Action="urn:CreateLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RegisterInstancesWithLoadBalancer">
+      <wsdl:input message="tns:RegisterInstancesWithLoadBalancerRequestMsg" wsa:Action="urn:RegisterInstancesWithLoadBalancer"/>
+      <wsdl:output message="tns:RegisterInstancesWithLoadBalancerResponseMsg" wsa:Action="urn:RegisterInstancesWithLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeregisterInstancesFromLoadBalancer">
+      <wsdl:input message="tns:DeregisterInstancesFromLoadBalancerRequestMsg" wsa:Action="urn:DeregisterInstancesFromLoadBalancer"/>
+      <wsdl:output message="tns:DeregisterInstancesFromLoadBalancerResponseMsg" wsa:Action="urn:DeregisterInstancesFromLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteLoadBalancer">
+      <wsdl:input message="tns:DeleteLoadBalancerRequestMsg" wsa:Action="urn:DeleteLoadBalancer"/>
+      <wsdl:output message="tns:DeleteLoadBalancerResponseMsg" wsa:Action="urn:DeleteLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ConfigureHealthCheck">
+      <wsdl:input message="tns:ConfigureHealthCheckRequestMsg" wsa:Action="urn:ConfigureHealthCheck"/>
+      <wsdl:output message="tns:ConfigureHealthCheckResponseMsg" wsa:Action="urn:ConfigureHealthCheck:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="EnableAvailabilityZonesForLoadBalancer">
+      <wsdl:input message="tns:EnableAvailabilityZonesForLoadBalancerRequestMsg" wsa:Action="urn:EnableAvailabilityZonesForLoadBalancer"/>
+      <wsdl:output message="tns:EnableAvailabilityZonesForLoadBalancerResponseMsg" wsa:Action="urn:EnableAvailabilityZonesForLoadBalancer:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateLBCookieStickinessPolicy">
+      <wsdl:input message="tns:CreateLBCookieStickinessPolicyRequestMsg" wsa:Action="urn:CreateLBCookieStickinessPolicy"/>
+      <wsdl:output message="tns:CreateLBCookieStickinessPolicyResponseMsg" wsa:Action="urn:CreateLBCookieStickinessPolicy:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteLoadBalancerPolicy">
+      <wsdl:input message="tns:DeleteLoadBalancerPolicyRequestMsg" wsa:Action="urn:DeleteLoadBalancerPolicy"/>
+      <wsdl:output message="tns:DeleteLoadBalancerPolicyResponseMsg" wsa:Action="urn:DeleteLoadBalancerPolicy:Response"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  <wsdl:binding name="ElasticLoadBalancingBinding" type="tns:ElasticLoadBalancingPortType">
+
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="SetLoadBalancerPoliciesOfListener">
+      <soap:operation soapAction="SetLoadBalancerPoliciesOfListener"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeLoadBalancers">
+      <soap:operation soapAction="DescribeLoadBalancers"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateAppCookieStickinessPolicy">
+      <soap:operation soapAction="CreateAppCookieStickinessPolicy"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DisableAvailabilityZonesForLoadBalancer">
+      <soap:operation soapAction="DisableAvailabilityZonesForLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeInstanceHealth">
+      <soap:operation soapAction="DescribeInstanceHealth"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateLoadBalancer">
+      <soap:operation soapAction="CreateLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RegisterInstancesWithLoadBalancer">
+      <soap:operation soapAction="RegisterInstancesWithLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeregisterInstancesFromLoadBalancer">
+      <soap:operation soapAction="DeregisterInstancesFromLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteLoadBalancer">
+      <soap:operation soapAction="DeleteLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ConfigureHealthCheck">
+      <soap:operation soapAction="ConfigureHealthCheck"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="EnableAvailabilityZonesForLoadBalancer">
+      <soap:operation soapAction="EnableAvailabilityZonesForLoadBalancer"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateLBCookieStickinessPolicy">
+      <soap:operation soapAction="CreateLBCookieStickinessPolicy"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteLoadBalancerPolicy">
+      <soap:operation soapAction="DeleteLoadBalancerPolicy"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+  <wsdl:service name="ElasticLoadBalancing">
+    <wsdl:port name="ElasticLoadBalancingPort" binding="tns:ElasticLoadBalancingBinding">
+      <soap:address location="https://elasticloadbalancing.amazonaws.com/"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

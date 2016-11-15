@@ -1,0 +1,1470 @@
+<?xml version="1.0"?>
+<wsdl:definitions
+  targetNamespace="http://rds.amazonaws.com/doc/2010-01-01/"
+  xmlns:tns="http://rds.amazonaws.com/doc/2010-01-01/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:wsa="http://www.w3.org/2005/08/addressing/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <wsdl:types>
+
+    <xs:schema
+      targetNamespace="http://rds.amazonaws.com/doc/2010-01-01/"
+      elementFormDefault="qualified">
+
+      <xs:element name="ResponseMetadata">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RequestId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="Error">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Type">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Receiver"/>
+                  <xs:enumeration value="Sender"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="Code" type="xs:string"/>
+            <xs:element name="Message" type="xs:string"/>
+            <xs:element name="Detail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+                </xs:sequence>
+                <xs:anyAttribute namespace="##other" processContents="lax"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ErrorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:Error" maxOccurs="unbounded"/>
+            <xs:element name="RequestId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSecurityGroups">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSecurityGroupsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeDBSecurityGroupsResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSecurityGroupsResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSecurityGroups" type="tns:DBSecurityGroups" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceFromDBSnapshot">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="DBSnapshotIdentifier" type="xs:string"/>
+            <xs:element name="DBInstanceClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+            <xs:element name="AvailabilityZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceFromDBSnapshotResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RestoreDBInstanceFromDBSnapshotResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceFromDBSnapshotResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBInstance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="AllocatedStorage" type="xs:integer" minOccurs="0"/>
+            <xs:element name="DBInstanceClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSecurityGroups" type="tns:DBSecurityGroupNameList" minOccurs="0"/>
+            <xs:element name="ApplyImmediately" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="MasterUserPassword" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="BackupRetentionPeriod" type="xs:integer" minOccurs="0"/>
+            <xs:element name="PreferredBackupWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="PreferredMaintenanceWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBInstanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ModifyDBInstanceResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBInstanceResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBParameterGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string"/>
+            <xs:element name="Engine" type="xs:string"/>
+            <xs:element name="Description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBParameterGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateDBParameterGroupResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBParameterGroupResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroup" type="tns:DBParameterGroup"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBSecurityGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBSecurityGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBInstance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBName" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="AllocatedStorage" type="xs:integer"/>
+            <xs:element name="DBInstanceClass" type="xs:string"/>
+            <xs:element name="Engine" type="xs:string"/>
+            <xs:element name="MasterUsername" type="xs:string"/>
+            <xs:element name="MasterUserPassword" type="xs:string"/>
+            <xs:element name="DBSecurityGroups" type="tns:DBSecurityGroupNameList" minOccurs="0"/>
+            <xs:element name="AvailabilityZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="PreferredMaintenanceWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="BackupRetentionPeriod" type="xs:integer" minOccurs="0"/>
+            <xs:element name="PreferredBackupWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBInstanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateDBInstanceResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBInstanceResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSecurityGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string"/>
+            <xs:element name="DBSecurityGroupDescription" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSecurityGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateDBSecurityGroupResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSecurityGroupResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroup" type="tns:DBSecurityGroup"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RebootDBInstance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RebootDBInstanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RebootDBInstanceResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RebootDBInstanceResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AuthorizeDBSecurityGroupIngress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string"/>
+            <xs:element name="CIDRIP" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupOwnerId" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AuthorizeDBSecurityGroupIngressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:AuthorizeDBSecurityGroupIngressResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="AuthorizeDBSecurityGroupIngressResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroup" type="tns:DBSecurityGroup"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBSnapshot">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSnapshotIdentifier" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBSnapshotResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DeleteDBSnapshotResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBSnapshotResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSnapshot" type="tns:DBSnapshot"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBParameterGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBParameterGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEvents">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SourceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="SourceType" type="tns:SourceType" minOccurs="0"/>
+            <xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="Duration" type="xs:integer" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEventsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeEventsResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEventsResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="Events" type="tns:EventList" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBInstances">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBInstancesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeDBInstancesResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBInstancesResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBInstances" type="tns:DBInstanceList" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParameterGroups">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParameterGroupsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeDBParameterGroupsResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParameterGroupsResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBParameterGroups" type="tns:DBParameterGroupList" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEngineDefaultParameters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Engine" type="xs:string"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEngineDefaultParametersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeEngineDefaultParametersResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeEngineDefaultParametersResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="EngineDefaults" type="tns:EngineDefaults"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBParameterGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string"/>
+            <xs:element name="Parameters" type="tns:ParametersList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBParameterGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ModifyDBParameterGroupResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ModifyDBParameterGroupResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSnapshots">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSnapshotIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSnapshotsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeDBSnapshotsResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBSnapshotsResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSnapshots" type="tns:DBSnapshotList" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ResetDBParameterGroup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string"/>
+            <xs:element name="ResetAllParameters" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="Parameters" type="tns:ParametersList" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ResetDBParameterGroupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:ResetDBParameterGroupResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="ResetDBParameterGroupResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParameters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string"/>
+            <xs:element name="Source" type="xs:string" minOccurs="0"/>
+            <xs:element name="MaxRecords" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParametersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DescribeDBParametersResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DescribeDBParametersResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Parameters" type="tns:ParametersList" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBInstance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="SkipFinalSnapshot" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="FinalDBSnapshotIdentifier" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBInstanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:DeleteDBInstanceResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="DeleteDBInstanceResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceToPointInTime">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SourceDBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="TargetDBInstanceIdentifier" type="xs:string"/>
+            <xs:element name="RestoreTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="UseLatestRestorableTime" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="DBInstanceClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+            <xs:element name="AvailabilityZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceToPointInTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RestoreDBInstanceToPointInTimeResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RestoreDBInstanceToPointInTimeResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBInstance" type="tns:DBInstance"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSnapshot">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSnapshotIdentifier" type="xs:string"/>
+            <xs:element name="DBInstanceIdentifier" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSnapshotResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:CreateDBSnapshotResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="CreateDBSnapshotResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSnapshot" type="tns:DBSnapshot"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RevokeDBSecurityGroupIngress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string"/>
+            <xs:element name="CIDRIP" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupOwnerId" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RevokeDBSecurityGroupIngressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RevokeDBSecurityGroupIngressResult"/>
+            <xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RevokeDBSecurityGroupIngressResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBSecurityGroup" type="tns:DBSecurityGroup"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:simpleType name="SourceType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="db-instance"/>
+          <xs:enumeration value="db-parameter-group"/>
+          <xs:enumeration value="db-security-group"/>
+          <xs:enumeration value="db-snapshot"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="DBParameterGroupList">
+        <xs:sequence>
+          <xs:element name="DBParameterGroup" type="tns:DBParameterGroup" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBInstance">
+        <xs:sequence>
+            <xs:element name="DBInstanceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBInstanceClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="Engine" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBInstanceStatus" type="xs:string" minOccurs="0"/>
+            <xs:element name="MasterUsername" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBName" type="xs:string" minOccurs="0"/>
+            <xs:element name="Endpoint" type="tns:Endpoint" minOccurs="0"/>
+            <xs:element name="AllocatedStorage" type="xs:integer" minOccurs="0"/>
+            <xs:element name="InstanceCreateTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="PreferredBackupWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="BackupRetentionPeriod" type="xs:integer" minOccurs="0"/>
+            <xs:element name="DBSecurityGroups" type="tns:DBSecurityGroupMembershipList" minOccurs="0"/>
+            <xs:element name="DBParameterGroups" type="tns:DBParameterGroupStatusList" minOccurs="0"/>
+            <xs:element name="AvailabilityZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="PreferredMaintenanceWindow" type="xs:string" minOccurs="0"/>
+            <xs:element name="PendingModifiedValues" type="tns:PendingModifiedValues" minOccurs="0"/>
+            <xs:element name="LatestRestorableTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBInstanceList">
+        <xs:sequence>
+          <xs:element name="DBInstance" type="tns:DBInstance" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="EventList">
+        <xs:sequence>
+          <xs:element name="Event" type="tns:Event" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Endpoint">
+        <xs:sequence>
+            <xs:element name="Address" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBParameterGroupStatus">
+        <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ParameterApplyStatus" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSecurityGroupNameList">
+        <xs:sequence>
+          <xs:element name="DBSecurityGroupName" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="IPRangeList">
+        <xs:sequence>
+          <xs:element name="IPRange" type="tns:IPRange" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="EngineDefaults">
+        <xs:sequence>
+            <xs:element name="Engine" type="xs:string" minOccurs="0"/>
+            <xs:element name="Marker" type="xs:string" minOccurs="0"/>
+            <xs:element name="Parameters" type="tns:ParametersList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Parameter">
+        <xs:sequence>
+            <xs:element name="ParameterName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ParameterValue" type="xs:string" minOccurs="0"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+            <xs:element name="Source" type="xs:string" minOccurs="0"/>
+            <xs:element name="ApplyType" type="xs:string" minOccurs="0"/>
+            <xs:element name="DataType" type="xs:string" minOccurs="0"/>
+            <xs:element name="AllowedValues" type="xs:string" minOccurs="0"/>
+            <xs:element name="IsModifiable" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="ApplyMethod" type="tns:ApplyMethod" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSecurityGroupMembershipList">
+        <xs:sequence>
+          <xs:element name="DBSecurityGroup" type="tns:DBSecurityGroupMembership" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ParametersList">
+        <xs:sequence>
+          <xs:element name="Parameter" type="tns:Parameter" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSecurityGroup">
+        <xs:sequence>
+            <xs:element name="OwnerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBSecurityGroupDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroups" type="tns:EC2SecurityGroupList" minOccurs="0"/>
+            <xs:element name="IPRanges" type="tns:IPRangeList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBParameterGroup">
+        <xs:sequence>
+            <xs:element name="DBParameterGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="Engine" type="xs:string" minOccurs="0"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSnapshot">
+        <xs:sequence>
+            <xs:element name="DBSnapshotIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="DBInstanceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="SnapshotCreateTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="Engine" type="xs:string" minOccurs="0"/>
+            <xs:element name="AllocatedStorage" type="xs:integer" minOccurs="0"/>
+            <xs:element name="Status" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+            <xs:element name="AvailabilityZone" type="xs:string" minOccurs="0"/>
+            <xs:element name="InstanceCreateTime" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="MasterUsername" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSecurityGroups">
+        <xs:sequence>
+          <xs:element name="DBSecurityGroup" type="tns:DBSecurityGroup" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBParameterGroupStatusList">
+        <xs:sequence>
+          <xs:element name="DBParameterGroup" type="tns:DBParameterGroupStatus" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="IPRange">
+        <xs:sequence>
+            <xs:element name="Status" type="xs:string" minOccurs="0"/>
+            <xs:element name="CIDRIP" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Event">
+        <xs:sequence>
+            <xs:element name="SourceIdentifier" type="xs:string" minOccurs="0"/>
+            <xs:element name="SourceType" type="tns:SourceType" minOccurs="0"/>
+            <xs:element name="Message" type="xs:string" minOccurs="0"/>
+            <xs:element name="Date" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="EC2SecurityGroup">
+        <xs:sequence>
+            <xs:element name="Status" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="EC2SecurityGroupOwnerId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSnapshotList">
+        <xs:sequence>
+          <xs:element name="DBSnapshot" type="tns:DBSnapshot" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="DBSecurityGroupMembership">
+        <xs:sequence>
+            <xs:element name="DBSecurityGroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="Status" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="EC2SecurityGroupList">
+        <xs:sequence>
+          <xs:element name="EC2SecurityGroup" type="tns:EC2SecurityGroup" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="PendingModifiedValues">
+        <xs:sequence>
+            <xs:element name="DBInstanceClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="AllocatedStorage" type="xs:integer" minOccurs="0"/>
+            <xs:element name="MasterUserPassword" type="xs:string" minOccurs="0"/>
+            <xs:element name="Port" type="xs:integer" minOccurs="0"/>
+            <xs:element name="BackupRetentionPeriod" type="xs:integer" minOccurs="0"/>
+            <xs:element name="MultiAZ" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="ApplyMethod">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="immediate"/>
+          <xs:enumeration value="pending-reboot"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+    </xs:schema>
+
+  </wsdl:types>
+
+  <wsdl:message name="DescribeDBSecurityGroupsRequestMsg">
+    <wsdl:part element="tns:DescribeDBSecurityGroups" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBSecurityGroupsResponseMsg">
+    <wsdl:part element="tns:DescribeDBSecurityGroupsResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RestoreDBInstanceFromDBSnapshotRequestMsg">
+    <wsdl:part element="tns:RestoreDBInstanceFromDBSnapshot" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RestoreDBInstanceFromDBSnapshotResponseMsg">
+    <wsdl:part element="tns:RestoreDBInstanceFromDBSnapshotResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifyDBInstanceRequestMsg">
+    <wsdl:part element="tns:ModifyDBInstance" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifyDBInstanceResponseMsg">
+    <wsdl:part element="tns:ModifyDBInstanceResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBParameterGroupRequestMsg">
+    <wsdl:part element="tns:CreateDBParameterGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBParameterGroupResponseMsg">
+    <wsdl:part element="tns:CreateDBParameterGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBSecurityGroupRequestMsg">
+    <wsdl:part element="tns:DeleteDBSecurityGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBSecurityGroupResponseMsg">
+    <wsdl:part element="tns:DeleteDBSecurityGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBInstanceRequestMsg">
+    <wsdl:part element="tns:CreateDBInstance" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBInstanceResponseMsg">
+    <wsdl:part element="tns:CreateDBInstanceResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBSecurityGroupRequestMsg">
+    <wsdl:part element="tns:CreateDBSecurityGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBSecurityGroupResponseMsg">
+    <wsdl:part element="tns:CreateDBSecurityGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RebootDBInstanceRequestMsg">
+    <wsdl:part element="tns:RebootDBInstance" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RebootDBInstanceResponseMsg">
+    <wsdl:part element="tns:RebootDBInstanceResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="AuthorizeDBSecurityGroupIngressRequestMsg">
+    <wsdl:part element="tns:AuthorizeDBSecurityGroupIngress" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="AuthorizeDBSecurityGroupIngressResponseMsg">
+    <wsdl:part element="tns:AuthorizeDBSecurityGroupIngressResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBSnapshotRequestMsg">
+    <wsdl:part element="tns:DeleteDBSnapshot" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBSnapshotResponseMsg">
+    <wsdl:part element="tns:DeleteDBSnapshotResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBParameterGroupRequestMsg">
+    <wsdl:part element="tns:DeleteDBParameterGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBParameterGroupResponseMsg">
+    <wsdl:part element="tns:DeleteDBParameterGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeEventsRequestMsg">
+    <wsdl:part element="tns:DescribeEvents" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeEventsResponseMsg">
+    <wsdl:part element="tns:DescribeEventsResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBInstancesRequestMsg">
+    <wsdl:part element="tns:DescribeDBInstances" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBInstancesResponseMsg">
+    <wsdl:part element="tns:DescribeDBInstancesResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBParameterGroupsRequestMsg">
+    <wsdl:part element="tns:DescribeDBParameterGroups" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBParameterGroupsResponseMsg">
+    <wsdl:part element="tns:DescribeDBParameterGroupsResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeEngineDefaultParametersRequestMsg">
+    <wsdl:part element="tns:DescribeEngineDefaultParameters" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeEngineDefaultParametersResponseMsg">
+    <wsdl:part element="tns:DescribeEngineDefaultParametersResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifyDBParameterGroupRequestMsg">
+    <wsdl:part element="tns:ModifyDBParameterGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ModifyDBParameterGroupResponseMsg">
+    <wsdl:part element="tns:ModifyDBParameterGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBSnapshotsRequestMsg">
+    <wsdl:part element="tns:DescribeDBSnapshots" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBSnapshotsResponseMsg">
+    <wsdl:part element="tns:DescribeDBSnapshotsResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ResetDBParameterGroupRequestMsg">
+    <wsdl:part element="tns:ResetDBParameterGroup" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="ResetDBParameterGroupResponseMsg">
+    <wsdl:part element="tns:ResetDBParameterGroupResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBParametersRequestMsg">
+    <wsdl:part element="tns:DescribeDBParameters" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DescribeDBParametersResponseMsg">
+    <wsdl:part element="tns:DescribeDBParametersResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBInstanceRequestMsg">
+    <wsdl:part element="tns:DeleteDBInstance" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="DeleteDBInstanceResponseMsg">
+    <wsdl:part element="tns:DeleteDBInstanceResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RestoreDBInstanceToPointInTimeRequestMsg">
+    <wsdl:part element="tns:RestoreDBInstanceToPointInTime" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RestoreDBInstanceToPointInTimeResponseMsg">
+    <wsdl:part element="tns:RestoreDBInstanceToPointInTimeResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBSnapshotRequestMsg">
+    <wsdl:part element="tns:CreateDBSnapshot" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="CreateDBSnapshotResponseMsg">
+    <wsdl:part element="tns:CreateDBSnapshotResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RevokeDBSecurityGroupIngressRequestMsg">
+    <wsdl:part element="tns:RevokeDBSecurityGroupIngress" name="body"/>
+  </wsdl:message>
+
+  <wsdl:message name="RevokeDBSecurityGroupIngressResponseMsg">
+    <wsdl:part element="tns:RevokeDBSecurityGroupIngressResponse" name="body"/>
+  </wsdl:message>
+
+  <wsdl:portType name="AmazonRDSv2PortType">
+
+    <wsdl:operation name="DescribeDBSecurityGroups">
+      <wsdl:documentation><![CDATA[
+This API returns a list of DBSecurityGroup descriptions. If a DBSecurityGroupName is specified,
+the list will contain only the descriptions of the specified DBSecurityGroup.
+
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeDBSecurityGroupsRequestMsg" wsa:Action="urn:DescribeDBSecurityGroups"/>
+      <wsdl:output message="tns:DescribeDBSecurityGroupsResponseMsg" wsa:Action="urn:DescribeDBSecurityGroups:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RestoreDBInstanceFromDBSnapshot">
+      <wsdl:documentation><![CDATA[
+This API creates a new DB Instance to an arbitrary point-in-time. Users can restore to any point in 
+time before the latestRestorableTime for up to backupRetentionPeriod days. The target database is created 
+from the source database with the same configuration as the original database except that the DB instance 
+is created with the default DB security group.    
+]]></wsdl:documentation>
+      <wsdl:input message="tns:RestoreDBInstanceFromDBSnapshotRequestMsg" wsa:Action="urn:RestoreDBInstanceFromDBSnapshot"/>
+      <wsdl:output message="tns:RestoreDBInstanceFromDBSnapshotResponseMsg" wsa:Action="urn:RestoreDBInstanceFromDBSnapshot:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifyDBInstance">
+      <wsdl:documentation><![CDATA[
+This API is used to change RDS Instance settings. Users call the ModifyDBInstance API to change one
+or more database configuration parameters by specifying these parameters and the new values in the
+request.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:ModifyDBInstanceRequestMsg" wsa:Action="urn:ModifyDBInstance"/>
+      <wsdl:output message="tns:ModifyDBInstanceResponseMsg" wsa:Action="urn:ModifyDBInstance:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBParameterGroup">
+      <wsdl:documentation><![CDATA[
+This API creates a new database parameter group.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:CreateDBParameterGroupRequestMsg" wsa:Action="urn:CreateDBParameterGroup"/>
+      <wsdl:output message="tns:CreateDBParameterGroupResponseMsg" wsa:Action="urn:CreateDBParameterGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBSecurityGroup">
+      <wsdl:documentation><![CDATA[
+This API deletes a database security group. Database security group must not be associated with any
+RDS Instances.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DeleteDBSecurityGroupRequestMsg" wsa:Action="urn:DeleteDBSecurityGroup"/>
+      <wsdl:output message="tns:DeleteDBSecurityGroupResponseMsg" wsa:Action="urn:DeleteDBSecurityGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBInstance">
+      <wsdl:documentation><![CDATA[
+This API creates a new DB instance.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:CreateDBInstanceRequestMsg" wsa:Action="urn:CreateDBInstance"/>
+      <wsdl:output message="tns:CreateDBInstanceResponseMsg" wsa:Action="urn:CreateDBInstance:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBSecurityGroup">
+      <wsdl:documentation><![CDATA[
+This API creates a new database security group. Database Security groups control access to a database instance.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:CreateDBSecurityGroupRequestMsg" wsa:Action="urn:CreateDBSecurityGroup"/>
+      <wsdl:output message="tns:CreateDBSecurityGroupResponseMsg" wsa:Action="urn:CreateDBSecurityGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RebootDBInstance">
+      <wsdl:documentation><![CDATA[
+The RebootDBInstance API reboots a previously provisioned RDS instance. This API results in the
+application of modified DBParameterGroup parameters with ApplyStatus of pending-reboot to the
+RDS instance. This action is taken as soon as possible, and results in a momentary outage to the RDS
+instance during which the RDS instance status is set to rebooting. A DBInstance event is created
+when the reboot is completed.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:RebootDBInstanceRequestMsg" wsa:Action="urn:RebootDBInstance"/>
+      <wsdl:output message="tns:RebootDBInstanceResponseMsg" wsa:Action="urn:RebootDBInstance:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="AuthorizeDBSecurityGroupIngress">
+      <wsdl:documentation><![CDATA[
+This API allows for ingress to a DBSecurityGroup using one of two forms of authorization. First,
+EC2 Security Groups can be added to the DBSecurityGroup if the application using the database
+is running on EC2 instances. Second, IP ranges are available if the application accessing your
+database is running on the Internet. Required parameters for this API are one of CIDR range or
+(EC2SecurityGroupName AND EC2SecurityGroupOwnerId).
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:AuthorizeDBSecurityGroupIngressRequestMsg" wsa:Action="urn:AuthorizeDBSecurityGroupIngress"/>
+      <wsdl:output message="tns:AuthorizeDBSecurityGroupIngressResponseMsg" wsa:Action="urn:AuthorizeDBSecurityGroupIngress:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBSnapshot">
+      <wsdl:documentation><![CDATA[
+This API is used to delete a DBSnapshot. The DBSnapshot must be in the &quot;available&quot; state to be
+deleted.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DeleteDBSnapshotRequestMsg" wsa:Action="urn:DeleteDBSnapshot"/>
+      <wsdl:output message="tns:DeleteDBSnapshotResponseMsg" wsa:Action="urn:DeleteDBSnapshot:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBParameterGroup">
+      <wsdl:documentation><![CDATA[
+This API deletes a particular DBParameterGroup. The DBParameterGroup cannot be associated with
+any RDS instances to be deleted.    
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DeleteDBParameterGroupRequestMsg" wsa:Action="urn:DeleteDBParameterGroup"/>
+      <wsdl:output message="tns:DeleteDBParameterGroupResponseMsg" wsa:Action="urn:DeleteDBParameterGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeEvents">
+      <wsdl:documentation><![CDATA[
+This API returns events related to DB Instances, DB Security Groups, DB Snapshots and DB Parameter 
+Groups for the past 14 das. Events specific to a particular DB Instance, database security group, 
+database snapshot or database parameter group can be obtained by providing the name as a parameter. 
+By default, the past hour of events are returned. 
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeEventsRequestMsg" wsa:Action="urn:DescribeEvents"/>
+      <wsdl:output message="tns:DescribeEventsResponseMsg" wsa:Action="urn:DescribeEvents:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBInstances">
+      <wsdl:documentation><![CDATA[
+This API is used to retrieve information about provisioned RDS instances. DescribeDBInstances
+supports pagination.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeDBInstancesRequestMsg" wsa:Action="urn:DescribeDBInstances"/>
+      <wsdl:output message="tns:DescribeDBInstancesResponseMsg" wsa:Action="urn:DescribeDBInstances:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBParameterGroups">
+      <wsdl:documentation><![CDATA[
+This API returns a list of DBParameterGroup descriptions. If a DBParameterGroupName is specified, 
+the list will contain only the descriptions of the specified DBParameterGroup.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeDBParameterGroupsRequestMsg" wsa:Action="urn:DescribeDBParameterGroups"/>
+      <wsdl:output message="tns:DescribeDBParameterGroupsResponseMsg" wsa:Action="urn:DescribeDBParameterGroups:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeEngineDefaultParameters">
+      <wsdl:documentation><![CDATA[
+This API returns the default engine and system parameter information for the specified database engine.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeEngineDefaultParametersRequestMsg" wsa:Action="urn:DescribeEngineDefaultParameters"/>
+      <wsdl:output message="tns:DescribeEngineDefaultParametersResponseMsg" wsa:Action="urn:DescribeEngineDefaultParameters:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifyDBParameterGroup">
+      <wsdl:documentation><![CDATA[
+This API modifies the parameters of a DBParameterGroup. To modify more than one parameter
+submit a list of the following: ParameterName, ParameterValue, and ApplyMethod. A maximum of 20
+parameters can be modified in a single request.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:ModifyDBParameterGroupRequestMsg" wsa:Action="urn:ModifyDBParameterGroup"/>
+      <wsdl:output message="tns:ModifyDBParameterGroupResponseMsg" wsa:Action="urn:ModifyDBParameterGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBSnapshots">
+      <wsdl:documentation><![CDATA[
+This API is used to retrieve information about DBSnapshots. This API supports pagination.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeDBSnapshotsRequestMsg" wsa:Action="urn:DescribeDBSnapshots"/>
+      <wsdl:output message="tns:DescribeDBSnapshotsResponseMsg" wsa:Action="urn:DescribeDBSnapshots:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="ResetDBParameterGroup">
+      <wsdl:documentation><![CDATA[
+This API modifies the parameters of a DBParameterGroup to the engine/system default value. To
+reset specific parameters submit a list of the following: ParameterName and ApplyMethod. To reset the
+entire DBParameterGroup specify the DBParameterGroup name and ResetAllParameters parameters.
+When resetting the entire group, dynamic parameters are updated immediately and static parameters
+are set to pending-reboot to take effect on the next MySQL reboot or RebootDBInstance request.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:ResetDBParameterGroupRequestMsg" wsa:Action="urn:ResetDBParameterGroup"/>
+      <wsdl:output message="tns:ResetDBParameterGroupResponseMsg" wsa:Action="urn:ResetDBParameterGroup:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBParameters">
+      <wsdl:documentation><![CDATA[
+This API returns the detailed parameter list for a particular DBParameterGroup.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DescribeDBParametersRequestMsg" wsa:Action="urn:DescribeDBParameters"/>
+      <wsdl:output message="tns:DescribeDBParametersResponseMsg" wsa:Action="urn:DescribeDBParameters:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBInstance">
+      <wsdl:documentation><![CDATA[
+The DeleteDBInstance API deletes a previously provisioned RDS instance. A successful response
+from the web service indicates the request was received correctly. If a final DBSnapshot is requested
+the status of the RDS instance will be &quot;deleting&quot; until the DBSnapshot is created. DescribeDBInstance
+is used to monitor the status of this operation. This cannot be canceled or reverted once submitted.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:DeleteDBInstanceRequestMsg" wsa:Action="urn:DeleteDBInstance"/>
+      <wsdl:output message="tns:DeleteDBInstanceResponseMsg" wsa:Action="urn:DeleteDBInstance:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RestoreDBInstanceToPointInTime">
+      <wsdl:documentation><![CDATA[
+This API creates a new RDS instance from a point-in-time system snapshot. The target database is created
+from the source database restore point with the same configuration as the original source database,
+except that the new RDS instance is created with the default security group.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:RestoreDBInstanceToPointInTimeRequestMsg" wsa:Action="urn:RestoreDBInstanceToPointInTime"/>
+      <wsdl:output message="tns:RestoreDBInstanceToPointInTimeResponseMsg" wsa:Action="urn:RestoreDBInstanceToPointInTime:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBSnapshot">
+      <wsdl:documentation><![CDATA[
+This API is used to create a DBSnapshot. The source DBInstance must be in &quot;available&quot; state.
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:CreateDBSnapshotRequestMsg" wsa:Action="urn:CreateDBSnapshot"/>
+      <wsdl:output message="tns:CreateDBSnapshotResponseMsg" wsa:Action="urn:CreateDBSnapshot:Response"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RevokeDBSecurityGroupIngress">
+      <wsdl:documentation><![CDATA[
+This API revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 Security
+Groups. Required parameters for this API are one of CIDRIP or (EC2SecurityGroupName AND
+EC2SecurityGroupOwnerId).
+    ]]></wsdl:documentation>
+      <wsdl:input message="tns:RevokeDBSecurityGroupIngressRequestMsg" wsa:Action="urn:RevokeDBSecurityGroupIngress"/>
+      <wsdl:output message="tns:RevokeDBSecurityGroupIngressResponseMsg" wsa:Action="urn:RevokeDBSecurityGroupIngress:Response"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  <wsdl:binding name="AmazonRDSv2Binding" type="tns:AmazonRDSv2PortType">
+
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="DescribeDBSecurityGroups">
+      <soap:operation soapAction="DescribeDBSecurityGroups"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RestoreDBInstanceFromDBSnapshot">
+      <soap:operation soapAction="RestoreDBInstanceFromDBSnapshot"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifyDBInstance">
+      <soap:operation soapAction="ModifyDBInstance"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBParameterGroup">
+      <soap:operation soapAction="CreateDBParameterGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBSecurityGroup">
+      <soap:operation soapAction="DeleteDBSecurityGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBInstance">
+      <soap:operation soapAction="CreateDBInstance"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBSecurityGroup">
+      <soap:operation soapAction="CreateDBSecurityGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RebootDBInstance">
+      <soap:operation soapAction="RebootDBInstance"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="AuthorizeDBSecurityGroupIngress">
+      <soap:operation soapAction="AuthorizeDBSecurityGroupIngress"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBSnapshot">
+      <soap:operation soapAction="DeleteDBSnapshot"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBParameterGroup">
+      <soap:operation soapAction="DeleteDBParameterGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeEvents">
+      <soap:operation soapAction="DescribeEvents"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBInstances">
+      <soap:operation soapAction="DescribeDBInstances"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBParameterGroups">
+      <soap:operation soapAction="DescribeDBParameterGroups"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeEngineDefaultParameters">
+      <soap:operation soapAction="DescribeEngineDefaultParameters"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ModifyDBParameterGroup">
+      <soap:operation soapAction="ModifyDBParameterGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBSnapshots">
+      <soap:operation soapAction="DescribeDBSnapshots"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="ResetDBParameterGroup">
+      <soap:operation soapAction="ResetDBParameterGroup"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DescribeDBParameters">
+      <soap:operation soapAction="DescribeDBParameters"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="DeleteDBInstance">
+      <soap:operation soapAction="DeleteDBInstance"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RestoreDBInstanceToPointInTime">
+      <soap:operation soapAction="RestoreDBInstanceToPointInTime"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="CreateDBSnapshot">
+      <soap:operation soapAction="CreateDBSnapshot"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="RevokeDBSecurityGroupIngress">
+      <soap:operation soapAction="RevokeDBSecurityGroupIngress"/>
+      <wsdl:input><soap:body use="literal"/></wsdl:input>
+      <wsdl:output><soap:body use="literal"/></wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+  <wsdl:service name="AmazonRDSv2">
+    <wsdl:port name="AmazonRDSv2Port" binding="tns:AmazonRDSv2Binding">
+      <soap:address location="https://rds.us-east-1.amazonaws.com"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

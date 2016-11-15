@@ -1,0 +1,1422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://marketing.ews.yahooapis.com/V6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <tns:version>6.1.0</tns:version>
+                </xsd:appinfo>
+            </xsd:annotation>
+            <xsd:element name="accountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="commandGroup">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="license">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="masterAccountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="quotaUsedForThisRequest">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="remainingQuota">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="timeTakenMillis">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ApiFault" type="tns:ApiFault"/>
+            <xsd:element name="addTargetingAttributesForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addTargetingAttributesForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addTargetingAttributesForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addTargetingAttributesForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingAttributesForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingAttributesForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingAttributesForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingAttributesForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTargetingAttributeDescriptorsForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptors" nillable="true" type="tns:ArrayOfTargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTargetingAttributeDescriptorsForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributeDescriptors" nillable="true" type="tns:ArrayOfTargetingAttributeDescriptor"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTypesForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingTypes" nillable="true" type="tns:ArrayOfTargetingType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTypesForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTypesForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingTypes" nillable="true" type="tns:ArrayOfTargetingType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingByTypesForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteTargetingForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetableLevelForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetableLevelForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetableLevel"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributesForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributesForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributesForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingAttributesForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingProfileForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingProfileForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingProfile"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingProfileForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getTargetingProfileForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:TargetingProfile"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfPassword">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfUsername">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="setTargetableLevelAsAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="moveExistingTargets" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setTargetableLevelAsAdGroupResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="setTargetableLevelAsCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setTargetableLevelAsCampaignResponse">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingAttributesForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingAttributesForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingAttributesForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingAttributes" nillable="true" type="tns:ArrayOfTargetingAttribute"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingAttributesForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingProfileForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingProfile" nillable="true" type="tns:TargetingProfile"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingProfileForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingProfileForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingProfile" nillable="true" type="tns:TargetingProfile"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updatePremiumByTargetingProfileForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateTargetingProfileForAdGroup">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingProfile" nillable="true" type="tns:TargetingProfile"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="updateAll" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateTargetingProfileForAdGroupResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateTargetingProfileForCampaign">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="campaignID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="targetingProfile" nillable="true" type="tns:TargetingProfile"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="updateAll" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateTargetingProfileForCampaignResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:simpleType name="DayOfTheWeek">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Saturday"/>
+                    <xsd:enumeration value="Monday"/>
+                    <xsd:enumeration value="Wednesday"/>
+                    <xsd:enumeration value="Sunday"/>
+                    <xsd:enumeration value="Friday"/>
+                    <xsd:enumeration value="Tuesday"/>
+                    <xsd:enumeration value="Thursday"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="Gender">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Male"/>
+                    <xsd:enumeration value="Female"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TargetableLevel">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Campaign"/>
+                    <xsd:enumeration value="AdGroup"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="TargetingPremiumType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Percentage"/>
+                    <xsd:enumeration value="Absolute"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="UnderAgeFilter">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Disable"/>
+                    <xsd:enumeration value="Enable"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="AgeRange">
+                <xsd:sequence>
+                    <xsd:element name="maxAge" type="xsd:int"/>
+                    <xsd:element name="minAge" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="AgeTarget">
+                <xsd:sequence>
+                    <xsd:element name="ageRange" type="tns:AgeRange"/>
+                    <xsd:element name="premium" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ApiFault">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfAgeTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="AgeTarget" nillable="true" type="tns:AgeTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDayPartingTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="DayPartingTarget" nillable="true" type="tns:DayPartingTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfError">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Error" nillable="true" type="tns:Error"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfGenderTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="GenderTarget" nillable="true" type="tns:GenderTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfGeoTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="GeoTarget" nillable="true" type="tns:GeoTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfNetworkTarget">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="NetworkTarget" nillable="true" type="tns:NetworkTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfTargetingAttribute">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="TargetingAttribute" nillable="true" type="tns:TargetingAttribute"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfTargetingAttributeDescriptor">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="TargetingAttributeDescriptor" nillable="true" type="tns:TargetingAttributeDescriptor"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfTargetingType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="TargetingType" nillable="true" type="tns:TargetingType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfWarning">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Warning" nillable="true" type="tns:Warning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BasicResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="warnings" nillable="true" type="tns:ArrayOfWarning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPart">
+                <xsd:sequence>
+                    <xsd:element name="dayOfTheWeek" type="tns:DayOfTheWeek"/>
+                    <xsd:element name="endHourOfDay" type="xsd:int"/>
+                    <xsd:element name="startHourOfDay" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPartingTarget">
+                <xsd:sequence>
+                    <xsd:element name="dayPart" type="tns:DayPart"/>
+                    <xsd:element minOccurs="0" name="premium" nillable="true" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DayPartingTargeting">
+                <xsd:sequence>
+                    <xsd:element name="dayPartingTargets" type="tns:ArrayOfDayPartingTarget"/>
+                    <xsd:element minOccurs="0" name="timeZone" nillable="true" type="xsd:string"/>
+                    <xsd:element name="userTimeZone" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DemographicTargeting">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ageTargets" nillable="true" type="tns:ArrayOfAgeTarget"/>
+                    <xsd:element minOccurs="0" name="genderTargets" nillable="true" type="tns:ArrayOfGenderTarget"/>
+                    <xsd:element minOccurs="0" name="underAgeFilter" nillable="true" type="tns:UnderAgeFilter"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Error">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GenderTarget">
+                <xsd:sequence>
+                    <xsd:element name="gender" type="tns:Gender"/>
+                    <xsd:element name="premium" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GeoLocation">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="placeType" nillable="true" type="tns:TargetingType"/>
+                    <xsd:element name="woeid" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GeoTarget">
+                <xsd:sequence>
+                    <xsd:element name="geoLocation" type="tns:GeoLocation"/>
+                    <xsd:element minOccurs="0" name="premium" nillable="true" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Network">
+                <xsd:sequence>
+                    <xsd:element name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element name="networkId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="NetworkDistribution">
+                <xsd:sequence>
+                    <xsd:element name="networkTargets" type="tns:ArrayOfNetworkTarget"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="NetworkTarget">
+                <xsd:sequence>
+                    <xsd:element name="network" type="tns:Network"/>
+                    <xsd:element minOccurs="0" name="premium" nillable="true" type="tns:TargetingPremium"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingAttribute">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="premium" nillable="true" type="tns:TargetingPremium"/>
+                    <xsd:element name="targetingAttributeDescriptor" type="tns:TargetingAttributeDescriptor"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingAttributeDescriptor">
+                <xsd:sequence>
+                    <xsd:element name="targetingAttributeID" type="xsd:string"/>
+                    <xsd:element name="targetingType" type="tns:TargetingType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingPremium">
+                <xsd:sequence>
+                    <xsd:element name="type" type="tns:TargetingPremiumType"/>
+                    <xsd:element name="value" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingProfile">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="dayPartingTargeting" nillable="true" type="tns:DayPartingTargeting"/>
+                    <xsd:element minOccurs="0" name="demographicTargeting" nillable="true" type="tns:DemographicTargeting"/>
+                    <xsd:element minOccurs="0" name="geoTargets" nillable="true" type="tns:ArrayOfGeoTarget"/>
+                    <xsd:element minOccurs="0" name="networkDistribution" nillable="true" type="tns:NetworkDistribution"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TargetingType">
+                <xsd:sequence>
+                    <xsd:element name="value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Warning">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+       
+        
+            <element name="Security" type="wsse:Security"/>
+            <complexType name="Security">
+                <sequence>
+                    <element name="UsernameToken" type="wsse:UsernameToken"/>
+                </sequence>
+            </complexType>
+            <complexType name="UsernameToken">
+                <sequence>
+                    <element name="Username" type="string"/>
+                    <element name="Password" type="string"/>
+                </sequence>
+            </complexType>
+         </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ApiFault">
+        <wsdl:part element="tns:ApiFault" name="ApiFault"/>
+    </wsdl:message>
+    <wsdl:message name="Security">
+        <wsdl:part element="wsse:Security" name="Security"/>
+    </wsdl:message>
+    <wsdl:message name="accountID">
+        <wsdl:part element="tns:accountID" name="accountID"/>
+    </wsdl:message>
+    <wsdl:message name="addTargetingAttributesForAdGroupRequest">
+        <wsdl:part element="tns:addTargetingAttributesForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addTargetingAttributesForAdGroupResponse">
+        <wsdl:part element="tns:addTargetingAttributesForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addTargetingAttributesForCampaignRequest">
+        <wsdl:part element="tns:addTargetingAttributesForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addTargetingAttributesForCampaignResponse">
+        <wsdl:part element="tns:addTargetingAttributesForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="commandGroup">
+        <wsdl:part element="tns:commandGroup" name="commandGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingAttributesForAdGroupRequest">
+        <wsdl:part element="tns:deleteTargetingAttributesForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingAttributesForAdGroupResponse">
+        <wsdl:part element="tns:deleteTargetingAttributesForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingAttributesForCampaignRequest">
+        <wsdl:part element="tns:deleteTargetingAttributesForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingAttributesForCampaignResponse">
+        <wsdl:part element="tns:deleteTargetingAttributesForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupRequest">
+        <wsdl:part element="tns:deleteTargetingByTargetingAttributeDescriptorsForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse">
+        <wsdl:part element="tns:deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTargetingAttributeDescriptorsForCampaignRequest">
+        <wsdl:part element="tns:deleteTargetingByTargetingAttributeDescriptorsForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse">
+        <wsdl:part element="tns:deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTypesForAdGroupRequest">
+        <wsdl:part element="tns:deleteTargetingByTypesForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTypesForAdGroupResponse">
+        <wsdl:part element="tns:deleteTargetingByTypesForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTypesForCampaignRequest">
+        <wsdl:part element="tns:deleteTargetingByTypesForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingByTypesForCampaignResponse">
+        <wsdl:part element="tns:deleteTargetingByTypesForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingForAdGroupRequest">
+        <wsdl:part element="tns:deleteTargetingForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingForAdGroupResponse">
+        <wsdl:part element="tns:deleteTargetingForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingForCampaignRequest">
+        <wsdl:part element="tns:deleteTargetingForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteTargetingForCampaignResponse">
+        <wsdl:part element="tns:deleteTargetingForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetableLevelForCampaignRequest">
+        <wsdl:part element="tns:getTargetableLevelForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetableLevelForCampaignResponse">
+        <wsdl:part element="tns:getTargetableLevelForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributesForAdGroupRequest">
+        <wsdl:part element="tns:getTargetingAttributesForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributesForAdGroupResponse">
+        <wsdl:part element="tns:getTargetingAttributesForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributesForCampaignRequest">
+        <wsdl:part element="tns:getTargetingAttributesForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingAttributesForCampaignResponse">
+        <wsdl:part element="tns:getTargetingAttributesForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingProfileForAdGroupRequest">
+        <wsdl:part element="tns:getTargetingProfileForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingProfileForAdGroupResponse">
+        <wsdl:part element="tns:getTargetingProfileForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingProfileForCampaignRequest">
+        <wsdl:part element="tns:getTargetingProfileForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getTargetingProfileForCampaignResponse">
+        <wsdl:part element="tns:getTargetingProfileForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="license">
+        <wsdl:part element="tns:license" name="license"/>
+    </wsdl:message>
+    <wsdl:message name="masterAccountID">
+        <wsdl:part element="tns:masterAccountID" name="masterAccountID"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfPassword">
+        <wsdl:part element="tns:onBehalfOfPassword" name="onBehalfOfPassword"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfUsername">
+        <wsdl:part element="tns:onBehalfOfUsername" name="onBehalfOfUsername"/>
+    </wsdl:message>
+    <wsdl:message name="quotaUsedForThisRequest">
+        <wsdl:part element="tns:quotaUsedForThisRequest" name="quotaUsedForThisRequest"/>
+    </wsdl:message>
+    <wsdl:message name="remainingQuota">
+        <wsdl:part element="tns:remainingQuota" name="remainingQuota"/>
+    </wsdl:message>
+    <wsdl:message name="setTargetableLevelAsAdGroupRequest">
+        <wsdl:part element="tns:setTargetableLevelAsAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setTargetableLevelAsAdGroupResponse">
+        <wsdl:part element="tns:setTargetableLevelAsAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setTargetableLevelAsCampaignRequest">
+        <wsdl:part element="tns:setTargetableLevelAsCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setTargetableLevelAsCampaignResponse">
+        <wsdl:part element="tns:setTargetableLevelAsCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="timeTakenMillis">
+        <wsdl:part element="tns:timeTakenMillis" name="timeTakenMillis"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingAttributesForAdGroupRequest">
+        <wsdl:part element="tns:updatePremiumByTargetingAttributesForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingAttributesForAdGroupResponse">
+        <wsdl:part element="tns:updatePremiumByTargetingAttributesForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingAttributesForCampaignRequest">
+        <wsdl:part element="tns:updatePremiumByTargetingAttributesForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingAttributesForCampaignResponse">
+        <wsdl:part element="tns:updatePremiumByTargetingAttributesForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingProfileForAdGroupRequest">
+        <wsdl:part element="tns:updatePremiumByTargetingProfileForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingProfileForAdGroupResponse">
+        <wsdl:part element="tns:updatePremiumByTargetingProfileForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingProfileForCampaignRequest">
+        <wsdl:part element="tns:updatePremiumByTargetingProfileForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updatePremiumByTargetingProfileForCampaignResponse">
+        <wsdl:part element="tns:updatePremiumByTargetingProfileForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateTargetingProfileForAdGroupRequest">
+        <wsdl:part element="tns:updateTargetingProfileForAdGroup" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateTargetingProfileForAdGroupResponse">
+        <wsdl:part element="tns:updateTargetingProfileForAdGroupResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateTargetingProfileForCampaignRequest">
+        <wsdl:part element="tns:updateTargetingProfileForCampaign" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateTargetingProfileForCampaignResponse">
+        <wsdl:part element="tns:updateTargetingProfileForCampaignResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="TargetingService">
+        <wsdl:operation name="addTargetingAttributesForAdGroup">
+            <wsdl:input message="tns:addTargetingAttributesForAdGroupRequest" name="addTargetingAttributesForAdGroupRequest"/>
+            <wsdl:output message="tns:addTargetingAttributesForAdGroupResponse" name="addTargetingAttributesForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="addTargetingAttributesForCampaign">
+            <wsdl:input message="tns:addTargetingAttributesForCampaignRequest" name="addTargetingAttributesForCampaignRequest"/>
+            <wsdl:output message="tns:addTargetingAttributesForCampaignResponse" name="addTargetingAttributesForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingAttributesForAdGroup">
+            <wsdl:input message="tns:deleteTargetingAttributesForAdGroupRequest" name="deleteTargetingAttributesForAdGroupRequest"/>
+            <wsdl:output message="tns:deleteTargetingAttributesForAdGroupResponse" name="deleteTargetingAttributesForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingAttributesForCampaign">
+            <wsdl:input message="tns:deleteTargetingAttributesForCampaignRequest" name="deleteTargetingAttributesForCampaignRequest"/>
+            <wsdl:output message="tns:deleteTargetingAttributesForCampaignResponse" name="deleteTargetingAttributesForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTargetingAttributeDescriptorsForAdGroup">
+            <wsdl:input message="tns:deleteTargetingByTargetingAttributeDescriptorsForAdGroupRequest" name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupRequest"/>
+            <wsdl:output message="tns:deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse" name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTargetingAttributeDescriptorsForCampaign">
+            <wsdl:input message="tns:deleteTargetingByTargetingAttributeDescriptorsForCampaignRequest" name="deleteTargetingByTargetingAttributeDescriptorsForCampaignRequest"/>
+            <wsdl:output message="tns:deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse" name="deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTypesForAdGroup">
+            <wsdl:input message="tns:deleteTargetingByTypesForAdGroupRequest" name="deleteTargetingByTypesForAdGroupRequest"/>
+            <wsdl:output message="tns:deleteTargetingByTypesForAdGroupResponse" name="deleteTargetingByTypesForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTypesForCampaign">
+            <wsdl:input message="tns:deleteTargetingByTypesForCampaignRequest" name="deleteTargetingByTypesForCampaignRequest"/>
+            <wsdl:output message="tns:deleteTargetingByTypesForCampaignResponse" name="deleteTargetingByTypesForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingForAdGroup">
+            <wsdl:input message="tns:deleteTargetingForAdGroupRequest" name="deleteTargetingForAdGroupRequest"/>
+            <wsdl:output message="tns:deleteTargetingForAdGroupResponse" name="deleteTargetingForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingForCampaign">
+            <wsdl:input message="tns:deleteTargetingForCampaignRequest" name="deleteTargetingForCampaignRequest"/>
+            <wsdl:output message="tns:deleteTargetingForCampaignResponse" name="deleteTargetingForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetableLevelForCampaign">
+            <wsdl:input message="tns:getTargetableLevelForCampaignRequest" name="getTargetableLevelForCampaignRequest"/>
+            <wsdl:output message="tns:getTargetableLevelForCampaignResponse" name="getTargetableLevelForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributesForAdGroup">
+            <wsdl:input message="tns:getTargetingAttributesForAdGroupRequest" name="getTargetingAttributesForAdGroupRequest"/>
+            <wsdl:output message="tns:getTargetingAttributesForAdGroupResponse" name="getTargetingAttributesForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributesForCampaign">
+            <wsdl:input message="tns:getTargetingAttributesForCampaignRequest" name="getTargetingAttributesForCampaignRequest"/>
+            <wsdl:output message="tns:getTargetingAttributesForCampaignResponse" name="getTargetingAttributesForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingProfileForAdGroup">
+            <wsdl:input message="tns:getTargetingProfileForAdGroupRequest" name="getTargetingProfileForAdGroupRequest"/>
+            <wsdl:output message="tns:getTargetingProfileForAdGroupResponse" name="getTargetingProfileForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingProfileForCampaign">
+            <wsdl:input message="tns:getTargetingProfileForCampaignRequest" name="getTargetingProfileForCampaignRequest"/>
+            <wsdl:output message="tns:getTargetingProfileForCampaignResponse" name="getTargetingProfileForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setTargetableLevelAsAdGroup">
+            <wsdl:input message="tns:setTargetableLevelAsAdGroupRequest" name="setTargetableLevelAsAdGroupRequest"/>
+            <wsdl:output message="tns:setTargetableLevelAsAdGroupResponse" name="setTargetableLevelAsAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setTargetableLevelAsCampaign">
+            <wsdl:input message="tns:setTargetableLevelAsCampaignRequest" name="setTargetableLevelAsCampaignRequest"/>
+            <wsdl:output message="tns:setTargetableLevelAsCampaignResponse" name="setTargetableLevelAsCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingAttributesForAdGroup">
+            <wsdl:input message="tns:updatePremiumByTargetingAttributesForAdGroupRequest" name="updatePremiumByTargetingAttributesForAdGroupRequest"/>
+            <wsdl:output message="tns:updatePremiumByTargetingAttributesForAdGroupResponse" name="updatePremiumByTargetingAttributesForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingAttributesForCampaign">
+            <wsdl:input message="tns:updatePremiumByTargetingAttributesForCampaignRequest" name="updatePremiumByTargetingAttributesForCampaignRequest"/>
+            <wsdl:output message="tns:updatePremiumByTargetingAttributesForCampaignResponse" name="updatePremiumByTargetingAttributesForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingProfileForAdGroup">
+            <wsdl:input message="tns:updatePremiumByTargetingProfileForAdGroupRequest" name="updatePremiumByTargetingProfileForAdGroupRequest"/>
+            <wsdl:output message="tns:updatePremiumByTargetingProfileForAdGroupResponse" name="updatePremiumByTargetingProfileForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingProfileForCampaign">
+            <wsdl:input message="tns:updatePremiumByTargetingProfileForCampaignRequest" name="updatePremiumByTargetingProfileForCampaignRequest"/>
+            <wsdl:output message="tns:updatePremiumByTargetingProfileForCampaignResponse" name="updatePremiumByTargetingProfileForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateTargetingProfileForAdGroup">
+            <wsdl:input message="tns:updateTargetingProfileForAdGroupRequest" name="updateTargetingProfileForAdGroupRequest"/>
+            <wsdl:output message="tns:updateTargetingProfileForAdGroupResponse" name="updateTargetingProfileForAdGroupResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateTargetingProfileForCampaign">
+            <wsdl:input message="tns:updateTargetingProfileForCampaignRequest" name="updateTargetingProfileForCampaignRequest"/>
+            <wsdl:output message="tns:updateTargetingProfileForCampaignResponse" name="updateTargetingProfileForCampaignResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TargetingServiceHttpBinding" type="tns:TargetingService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addTargetingAttributesForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addTargetingAttributesForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addTargetingAttributesForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="addTargetingAttributesForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addTargetingAttributesForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addTargetingAttributesForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingAttributesForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingAttributesForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingAttributesForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingAttributesForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingAttributesForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingAttributesForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTargetingAttributeDescriptorsForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingByTargetingAttributeDescriptorsForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTargetingAttributeDescriptorsForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingByTargetingAttributeDescriptorsForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingByTargetingAttributeDescriptorsForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTypesForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingByTypesForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingByTypesForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingByTypesForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingByTypesForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingByTypesForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteTargetingForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteTargetingForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteTargetingForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetableLevelForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetableLevelForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetableLevelForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributesForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributesForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributesForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingAttributesForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingAttributesForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingAttributesForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingProfileForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingProfileForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingProfileForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getTargetingProfileForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getTargetingProfileForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTargetingProfileForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setTargetableLevelAsAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setTargetableLevelAsAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setTargetableLevelAsAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setTargetableLevelAsCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setTargetableLevelAsCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setTargetableLevelAsCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingAttributesForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updatePremiumByTargetingAttributesForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updatePremiumByTargetingAttributesForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingAttributesForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updatePremiumByTargetingAttributesForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updatePremiumByTargetingAttributesForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingProfileForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updatePremiumByTargetingProfileForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updatePremiumByTargetingProfileForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updatePremiumByTargetingProfileForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updatePremiumByTargetingProfileForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updatePremiumByTargetingProfileForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateTargetingProfileForAdGroup">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateTargetingProfileForAdGroupRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateTargetingProfileForAdGroupResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateTargetingProfileForCampaign">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateTargetingProfileForCampaignRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateTargetingProfileForCampaignResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TargetingServiceService">
+        <wsdl:port binding="tns:TargetingServiceHttpBinding" name="TargetingService">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6/TargetingService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

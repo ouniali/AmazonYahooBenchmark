@@ -1,0 +1,1983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tns="http://marketing.ews.yahooapis.com/V6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://marketing.ews.yahooapis.com/V6" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:annotation>
+                <xsd:appinfo>
+                    <tns:version>6.1.0</tns:version>
+                </xsd:appinfo>
+            </xsd:annotation>
+            <xsd:element name="accountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="commandGroup">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="license">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="masterAccountID">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="quotaUsedForThisRequest">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="remainingQuota">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="timeTakenMillis">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ApiFault" type="tns:ApiFault"/>
+            <xsd:element name="addKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keyword" nillable="true" type="tns:Keyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywords" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="copyKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="destinationAdGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="newSponsoredSearchMaxBid" nillable="true" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="copyKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="deleteKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfBasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getEditorialReasonText">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="editorialReasonCode" type="xsd:int"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="locale" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getEditorialReasonTextResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getEditorialReasonsForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getEditorialReasonsForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordEditorialReasons"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordParticipationStatusByAdGroupId">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="startElement" type="xsd:int"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="numElements" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordParticipationStatusByAdGroupIdResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeywordParticipationStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:Keyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordSponsoredSearchMaxBid">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordSponsoredSearchMaxBidResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordIDs" nillable="true" type="tns:ArrayOfLong"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAccountID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="accountID" nillable="true" type="xsd:string"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="includeDeleted" type="xsd:boolean"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="startElement" type="xsd:int"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="numElements" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAccountIDResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupByParticipatesInMarketplace">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="participatesInMarketplace" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupByParticipatesInMarketplaceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupBySponsoredSearchBidStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="sponsoredSearchBidStatus" nillable="true" type="tns:BidStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupBySponsoredSearchBidStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupID">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="includeDeleted" type="xsd:boolean"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="startElement" type="xsd:int"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="numElements" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupIDByEditorialStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="update" type="xsd:boolean"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="status" nillable="true" type="tns:EditorialStatus"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="includeDeleted" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupIDByEditorialStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupIDByStatus">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="status" nillable="true" type="tns:KeywordStatus"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="startElement" type="xsd:int"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="numElements" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupIDByStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsByAdGroupIDResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptimizationGuidelinesForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getOptimizationGuidelinesForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordOptimizationGuidelines"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReasonsForKeywordNotParticipatingInMarketplace">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getReasonsForKeywordNotParticipatingInMarketplaceResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfNotParticipatingInMarketplaceReason"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordOptimizationGuidelines">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordString">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="sponsoredSearchMinBidRequest" nillable="true" type="tns:SponsoredSearchMinBidRequest"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordStringResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordStrings">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="sponsoredSearchMinBidRequests" nillable="true" type="tns:ArrayOfSponsoredSearchMinBidRequest"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidForKeywordStringsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfDouble"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidUpdatesByAdGroupId">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="adGroupId" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="bidStatus" nillable="true" type="tns:BidStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSponsoredSearchMinBidUpdatesByAdGroupIdResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfBidUpdateInfo"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getStatusForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getStatusForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getUpdateForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getUpdateForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:UpdateForKeyword"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="moveKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="destinationAdGroupID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="newSponsoredSearchMaxBid" nillable="true" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="moveKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:BasicResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfPassword">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="onBehalfOfUsername">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="setKeywordUrl">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="url" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setKeywordUrlResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setOptimizationGuidelinesForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="optimizationGuidelines" nillable="true" type="tns:KeywordOptimizationGuidelines"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="setOptimizationGuidelinesForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordOptimizationGuidelinesResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keyword" nillable="true" type="tns:Keyword"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="updateAll" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywords" nillable="true" type="tns:ArrayOfKeyword"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="updateAll" type="xsd:boolean"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateSponsoredSearchMaxBidForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="maxBid" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateSponsoredSearchMaxBidForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateSponsoredSearchMaxBidForKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordIDs" nillable="true" type="tns:ArrayOfLong"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="maxBids" nillable="true" type="tns:ArrayOfDouble"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateSponsoredSearchMaxBidForKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateStatusForKeyword">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordID" type="xsd:long"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="status" nillable="true" type="tns:KeywordStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateStatusForKeywordResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:KeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateStatusForKeywords">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="keywordIDs" nillable="true" type="tns:ArrayOfLong"/>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="status" nillable="true" type="tns:KeywordStatus"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateStatusForKeywordsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="tns:ArrayOfKeywordResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:simpleType name="BidStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Active"/>
+                    <xsd:enumeration value="PendingDeactivation"/>
+                    <xsd:enumeration value="NotApplicable"/>
+                    <xsd:enumeration value="Inactive"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="EditorialStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Rejected"/>
+                    <xsd:enumeration value="Suspended"/>
+                    <xsd:enumeration value="Approved"/>
+                    <xsd:enumeration value="Pending"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="KeywordStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Off"/>
+                    <xsd:enumeration value="Deleted"/>
+                    <xsd:enumeration value="On"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="NotParticipatingInMarketplaceReason">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="BidIsInactive"/>
+                    <xsd:enumeration value="StatusIsOff"/>
+                    <xsd:enumeration value="NotApproved"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="ParticipationStatus">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="AllTacticsOffAtCampaign"/>
+                    <xsd:enumeration value="ActiveNewMinBid"/>
+                    <xsd:enumeration value="Active"/>
+                    <xsd:enumeration value="CampaignScheduled"/>
+                    <xsd:enumeration value="CampaignPaused"/>
+                    <xsd:enumeration value="InactiveBidTooLowThanMinBid"/>
+                    <xsd:enumeration value="AdgroupPaused"/>
+                    <xsd:enumeration value="EditorialDeclinedChangeRequested"/>
+                    <xsd:enumeration value="CampaignDeleted"/>
+                    <xsd:enumeration value="Paused"/>
+                    <xsd:enumeration value="CampaignExpired"/>
+                    <xsd:enumeration value="EditorialDeclined"/>
+                    <xsd:enumeration value="AllTacticsOffAtAdGroup"/>
+                    <xsd:enumeration value="ActiveHeavyDiscount"/>
+                    <xsd:enumeration value="ActiveNewMinBidHeavyDiscount"/>
+                    <xsd:enumeration value="EditorialRemoved"/>
+                    <xsd:enumeration value="AdgroupDeleted"/>
+                    <xsd:enumeration value="PendingInactiveBidTooLow"/>
+                    <xsd:enumeration value="CampaignIncomplete"/>
+                    <xsd:enumeration value="ActiveChangeRequested"/>
+                    <xsd:enumeration value="ActiveChangeDeclined"/>
+                    <xsd:enumeration value="Deleted"/>
+                    <xsd:enumeration value="EditorialPending"/>
+                    <xsd:enumeration value="Inactive"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="ApiFault">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfBasicResponse">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="BasicResponse" nillable="true" type="tns:BasicResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfBidUpdateInfo">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="BidUpdateInfo" nillable="true" type="tns:BidUpdateInfo"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfDouble">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="double" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfError">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Error" nillable="true" type="tns:Error"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfInt">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="int" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfKeyword">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Keyword" nillable="true" type="tns:Keyword"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfKeywordParticipationStatus">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="KeywordParticipationStatus" nillable="true" type="tns:KeywordParticipationStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfKeywordResponse">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="KeywordResponse" nillable="true" type="tns:KeywordResponse"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfLong">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="long" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfNotParticipatingInMarketplaceReason">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="NotParticipatingInMarketplaceReason" nillable="true" type="tns:NotParticipatingInMarketplaceReason"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfSponsoredSearchMinBidRequest">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="SponsoredSearchMinBidRequest" nillable="true" type="tns:SponsoredSearchMinBidRequest"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfWarning">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="Warning" nillable="true" type="tns:Warning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BasicResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="warnings" nillable="true" type="tns:ArrayOfWarning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BidUpdateInfo">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="bid" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" name="bidStatus" type="tns:BidStatus"/>
+                    <xsd:element minOccurs="0" name="cutOffBid" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" name="keywordId" type="xsd:long"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Error">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Keyword">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="accountID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="adGroupID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="advancedMatchON" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="alternateText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="canonicalSearchText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="createTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="deleteTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="editorialStatus" nillable="true" type="tns:EditorialStatus"/>
+                    <xsd:element minOccurs="0" name="lastUpdateTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="participatesInMarketplace" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="phraseSearchText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchBidStatus" nillable="true" type="tns:BidStatus"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchMaxBid" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchMaxBidTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchMinBid" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" name="status" nillable="true" type="tns:KeywordStatus"/>
+                    <xsd:element minOccurs="0" name="text" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="update" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="url" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="watchON" nillable="true" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="KeywordEditorialReasons">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="alternateTextEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="keywordEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="keywordID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="phraseSearchTextEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="textEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="urlContentEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="urlEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                    <xsd:element minOccurs="0" name="urlStringEditorialReasons" nillable="true" type="tns:ArrayOfInt"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="KeywordOptimizationGuidelines">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="accountID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="adGroupID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="createTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="keywordID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="lastUpdateTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="sponsoredSearchMaxBid" nillable="true" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="KeywordOptimizationGuidelinesResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="keywordOptimizationGuidelines" nillable="true" type="tns:KeywordOptimizationGuidelines"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="warnings" nillable="true" type="tns:ArrayOfWarning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="KeywordParticipationStatus">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="keywordID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="participationStatus" nillable="true" type="tns:ParticipationStatus"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="KeywordResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="editorialReasons" nillable="true" type="tns:KeywordEditorialReasons"/>
+                    <xsd:element minOccurs="0" name="errors" nillable="true" type="tns:ArrayOfError"/>
+                    <xsd:element minOccurs="0" name="keyword" nillable="true" type="tns:Keyword"/>
+                    <xsd:element minOccurs="0" name="operationSucceeded" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" name="warnings" nillable="true" type="tns:ArrayOfWarning"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="SponsoredSearchMinBidRequest">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="adGroupID" nillable="true" type="xsd:long"/>
+                    <xsd:element name="keyword" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="UpdateForKeyword">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ID" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" name="accountID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="alternateText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="canonicalSearchText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="createTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="editorialStatus" nillable="true" type="tns:EditorialStatus"/>
+                    <xsd:element minOccurs="0" name="lastUpdateTimestamp" nillable="true" type="xsd:dateTime"/>
+                    <xsd:element minOccurs="0" name="phraseSearchText" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="text" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="url" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Warning">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        
+        
+            <element name="Security" type="wsse:Security"/>
+            <complexType name="Security">
+                <sequence>
+                    <element name="UsernameToken" type="wsse:UsernameToken"/>
+                </sequence>
+            </complexType>
+            <complexType name="UsernameToken">
+                <sequence>
+                    <element name="Username" type="string"/>
+                    <element name="Password" type="string"/>
+                </sequence>
+            </complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ApiFault">
+        <wsdl:part element="tns:ApiFault" name="ApiFault"/>
+    </wsdl:message>
+    <wsdl:message name="Security">
+        <wsdl:part element="wsse:Security" name="Security"/>
+    </wsdl:message>
+    <wsdl:message name="accountID">
+        <wsdl:part element="tns:accountID" name="accountID"/>
+    </wsdl:message>
+    <wsdl:message name="addKeywordRequest">
+        <wsdl:part element="tns:addKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addKeywordResponse">
+        <wsdl:part element="tns:addKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addKeywordsRequest">
+        <wsdl:part element="tns:addKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="addKeywordsResponse">
+        <wsdl:part element="tns:addKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="commandGroup">
+        <wsdl:part element="tns:commandGroup" name="commandGroup"/>
+    </wsdl:message>
+    <wsdl:message name="copyKeywordRequest">
+        <wsdl:part element="tns:copyKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="copyKeywordResponse">
+        <wsdl:part element="tns:copyKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteKeywordRequest">
+        <wsdl:part element="tns:deleteKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteKeywordResponse">
+        <wsdl:part element="tns:deleteKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteKeywordsRequest">
+        <wsdl:part element="tns:deleteKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteKeywordsResponse">
+        <wsdl:part element="tns:deleteKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getEditorialReasonTextRequest">
+        <wsdl:part element="tns:getEditorialReasonText" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getEditorialReasonTextResponse">
+        <wsdl:part element="tns:getEditorialReasonTextResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getEditorialReasonsForKeywordRequest">
+        <wsdl:part element="tns:getEditorialReasonsForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getEditorialReasonsForKeywordResponse">
+        <wsdl:part element="tns:getEditorialReasonsForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordParticipationStatusByAdGroupIdRequest">
+        <wsdl:part element="tns:getKeywordParticipationStatusByAdGroupId" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordParticipationStatusByAdGroupIdResponse">
+        <wsdl:part element="tns:getKeywordParticipationStatusByAdGroupIdResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordRequest">
+        <wsdl:part element="tns:getKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordResponse">
+        <wsdl:part element="tns:getKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordSponsoredSearchMaxBidRequest">
+        <wsdl:part element="tns:getKeywordSponsoredSearchMaxBid" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordSponsoredSearchMaxBidResponse">
+        <wsdl:part element="tns:getKeywordSponsoredSearchMaxBidResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAccountIDRequest">
+        <wsdl:part element="tns:getKeywordsByAccountID" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAccountIDResponse">
+        <wsdl:part element="tns:getKeywordsByAccountIDResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupByParticipatesInMarketplaceRequest">
+        <wsdl:part element="tns:getKeywordsByAdGroupByParticipatesInMarketplace" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupByParticipatesInMarketplaceResponse">
+        <wsdl:part element="tns:getKeywordsByAdGroupByParticipatesInMarketplaceResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupBySponsoredSearchBidStatusRequest">
+        <wsdl:part element="tns:getKeywordsByAdGroupBySponsoredSearchBidStatus" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupBySponsoredSearchBidStatusResponse">
+        <wsdl:part element="tns:getKeywordsByAdGroupBySponsoredSearchBidStatusResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDByEditorialStatusRequest">
+        <wsdl:part element="tns:getKeywordsByAdGroupIDByEditorialStatus" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDByEditorialStatusResponse">
+        <wsdl:part element="tns:getKeywordsByAdGroupIDByEditorialStatusResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDByStatusRequest">
+        <wsdl:part element="tns:getKeywordsByAdGroupIDByStatus" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDByStatusResponse">
+        <wsdl:part element="tns:getKeywordsByAdGroupIDByStatusResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDRequest">
+        <wsdl:part element="tns:getKeywordsByAdGroupID" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsByAdGroupIDResponse">
+        <wsdl:part element="tns:getKeywordsByAdGroupIDResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsRequest">
+        <wsdl:part element="tns:getKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getKeywordsResponse">
+        <wsdl:part element="tns:getKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptimizationGuidelinesForKeywordRequest">
+        <wsdl:part element="tns:getOptimizationGuidelinesForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOptimizationGuidelinesForKeywordResponse">
+        <wsdl:part element="tns:getOptimizationGuidelinesForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReasonsForKeywordNotParticipatingInMarketplaceRequest">
+        <wsdl:part element="tns:getReasonsForKeywordNotParticipatingInMarketplace" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getReasonsForKeywordNotParticipatingInMarketplaceResponse">
+        <wsdl:part element="tns:getReasonsForKeywordNotParticipatingInMarketplaceResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesRequest">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordOptimizationGuidelines" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordStringRequest">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordString" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordStringResponse">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordStringResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordStringsRequest">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordStrings" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidForKeywordStringsResponse">
+        <wsdl:part element="tns:getSponsoredSearchMinBidForKeywordStringsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidUpdatesByAdGroupIdRequest">
+        <wsdl:part element="tns:getSponsoredSearchMinBidUpdatesByAdGroupId" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getSponsoredSearchMinBidUpdatesByAdGroupIdResponse">
+        <wsdl:part element="tns:getSponsoredSearchMinBidUpdatesByAdGroupIdResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getStatusForKeywordRequest">
+        <wsdl:part element="tns:getStatusForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getStatusForKeywordResponse">
+        <wsdl:part element="tns:getStatusForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUpdateForKeywordRequest">
+        <wsdl:part element="tns:getUpdateForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getUpdateForKeywordResponse">
+        <wsdl:part element="tns:getUpdateForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="license">
+        <wsdl:part element="tns:license" name="license"/>
+    </wsdl:message>
+    <wsdl:message name="masterAccountID">
+        <wsdl:part element="tns:masterAccountID" name="masterAccountID"/>
+    </wsdl:message>
+    <wsdl:message name="moveKeywordRequest">
+        <wsdl:part element="tns:moveKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="moveKeywordResponse">
+        <wsdl:part element="tns:moveKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfPassword">
+        <wsdl:part element="tns:onBehalfOfPassword" name="onBehalfOfPassword"/>
+    </wsdl:message>
+    <wsdl:message name="onBehalfOfUsername">
+        <wsdl:part element="tns:onBehalfOfUsername" name="onBehalfOfUsername"/>
+    </wsdl:message>
+    <wsdl:message name="quotaUsedForThisRequest">
+        <wsdl:part element="tns:quotaUsedForThisRequest" name="quotaUsedForThisRequest"/>
+    </wsdl:message>
+    <wsdl:message name="remainingQuota">
+        <wsdl:part element="tns:remainingQuota" name="remainingQuota"/>
+    </wsdl:message>
+    <wsdl:message name="setKeywordUrlRequest">
+        <wsdl:part element="tns:setKeywordUrl" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setKeywordUrlResponse">
+        <wsdl:part element="tns:setKeywordUrlResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setOptimizationGuidelinesForKeywordRequest">
+        <wsdl:part element="tns:setOptimizationGuidelinesForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="setOptimizationGuidelinesForKeywordResponse">
+        <wsdl:part element="tns:setOptimizationGuidelinesForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="timeTakenMillis">
+        <wsdl:part element="tns:timeTakenMillis" name="timeTakenMillis"/>
+    </wsdl:message>
+    <wsdl:message name="updateKeywordRequest">
+        <wsdl:part element="tns:updateKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateKeywordResponse">
+        <wsdl:part element="tns:updateKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateKeywordsRequest">
+        <wsdl:part element="tns:updateKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateKeywordsResponse">
+        <wsdl:part element="tns:updateKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateSponsoredSearchMaxBidForKeywordRequest">
+        <wsdl:part element="tns:updateSponsoredSearchMaxBidForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateSponsoredSearchMaxBidForKeywordResponse">
+        <wsdl:part element="tns:updateSponsoredSearchMaxBidForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateSponsoredSearchMaxBidForKeywordsRequest">
+        <wsdl:part element="tns:updateSponsoredSearchMaxBidForKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateSponsoredSearchMaxBidForKeywordsResponse">
+        <wsdl:part element="tns:updateSponsoredSearchMaxBidForKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForKeywordRequest">
+        <wsdl:part element="tns:updateStatusForKeyword" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForKeywordResponse">
+        <wsdl:part element="tns:updateStatusForKeywordResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForKeywordsRequest">
+        <wsdl:part element="tns:updateStatusForKeywords" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="updateStatusForKeywordsResponse">
+        <wsdl:part element="tns:updateStatusForKeywordsResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="KeywordService">
+        <wsdl:operation name="addKeyword">
+            <wsdl:input message="tns:addKeywordRequest" name="addKeywordRequest"/>
+            <wsdl:output message="tns:addKeywordResponse" name="addKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="addKeywords">
+            <wsdl:input message="tns:addKeywordsRequest" name="addKeywordsRequest"/>
+            <wsdl:output message="tns:addKeywordsResponse" name="addKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="copyKeyword">
+            <wsdl:input message="tns:copyKeywordRequest" name="copyKeywordRequest"/>
+            <wsdl:output message="tns:copyKeywordResponse" name="copyKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteKeyword">
+            <wsdl:input message="tns:deleteKeywordRequest" name="deleteKeywordRequest"/>
+            <wsdl:output message="tns:deleteKeywordResponse" name="deleteKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteKeywords">
+            <wsdl:input message="tns:deleteKeywordsRequest" name="deleteKeywordsRequest"/>
+            <wsdl:output message="tns:deleteKeywordsResponse" name="deleteKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getEditorialReasonText">
+            <wsdl:input message="tns:getEditorialReasonTextRequest" name="getEditorialReasonTextRequest"/>
+            <wsdl:output message="tns:getEditorialReasonTextResponse" name="getEditorialReasonTextResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getEditorialReasonsForKeyword">
+            <wsdl:input message="tns:getEditorialReasonsForKeywordRequest" name="getEditorialReasonsForKeywordRequest"/>
+            <wsdl:output message="tns:getEditorialReasonsForKeywordResponse" name="getEditorialReasonsForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeyword">
+            <wsdl:input message="tns:getKeywordRequest" name="getKeywordRequest"/>
+            <wsdl:output message="tns:getKeywordResponse" name="getKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordParticipationStatusByAdGroupId">
+            <wsdl:input message="tns:getKeywordParticipationStatusByAdGroupIdRequest" name="getKeywordParticipationStatusByAdGroupIdRequest"/>
+            <wsdl:output message="tns:getKeywordParticipationStatusByAdGroupIdResponse" name="getKeywordParticipationStatusByAdGroupIdResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordSponsoredSearchMaxBid">
+            <wsdl:input message="tns:getKeywordSponsoredSearchMaxBidRequest" name="getKeywordSponsoredSearchMaxBidRequest"/>
+            <wsdl:output message="tns:getKeywordSponsoredSearchMaxBidResponse" name="getKeywordSponsoredSearchMaxBidResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywords">
+            <wsdl:input message="tns:getKeywordsRequest" name="getKeywordsRequest"/>
+            <wsdl:output message="tns:getKeywordsResponse" name="getKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAccountID">
+            <wsdl:input message="tns:getKeywordsByAccountIDRequest" name="getKeywordsByAccountIDRequest"/>
+            <wsdl:output message="tns:getKeywordsByAccountIDResponse" name="getKeywordsByAccountIDResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupByParticipatesInMarketplace">
+            <wsdl:input message="tns:getKeywordsByAdGroupByParticipatesInMarketplaceRequest" name="getKeywordsByAdGroupByParticipatesInMarketplaceRequest"/>
+            <wsdl:output message="tns:getKeywordsByAdGroupByParticipatesInMarketplaceResponse" name="getKeywordsByAdGroupByParticipatesInMarketplaceResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupBySponsoredSearchBidStatus">
+            <wsdl:input message="tns:getKeywordsByAdGroupBySponsoredSearchBidStatusRequest" name="getKeywordsByAdGroupBySponsoredSearchBidStatusRequest"/>
+            <wsdl:output message="tns:getKeywordsByAdGroupBySponsoredSearchBidStatusResponse" name="getKeywordsByAdGroupBySponsoredSearchBidStatusResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupID">
+            <wsdl:input message="tns:getKeywordsByAdGroupIDRequest" name="getKeywordsByAdGroupIDRequest"/>
+            <wsdl:output message="tns:getKeywordsByAdGroupIDResponse" name="getKeywordsByAdGroupIDResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupIDByEditorialStatus">
+            <wsdl:input message="tns:getKeywordsByAdGroupIDByEditorialStatusRequest" name="getKeywordsByAdGroupIDByEditorialStatusRequest"/>
+            <wsdl:output message="tns:getKeywordsByAdGroupIDByEditorialStatusResponse" name="getKeywordsByAdGroupIDByEditorialStatusResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupIDByStatus">
+            <wsdl:input message="tns:getKeywordsByAdGroupIDByStatusRequest" name="getKeywordsByAdGroupIDByStatusRequest"/>
+            <wsdl:output message="tns:getKeywordsByAdGroupIDByStatusResponse" name="getKeywordsByAdGroupIDByStatusResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getOptimizationGuidelinesForKeyword">
+            <wsdl:input message="tns:getOptimizationGuidelinesForKeywordRequest" name="getOptimizationGuidelinesForKeywordRequest"/>
+            <wsdl:output message="tns:getOptimizationGuidelinesForKeywordResponse" name="getOptimizationGuidelinesForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReasonsForKeywordNotParticipatingInMarketplace">
+            <wsdl:input message="tns:getReasonsForKeywordNotParticipatingInMarketplaceRequest" name="getReasonsForKeywordNotParticipatingInMarketplaceRequest"/>
+            <wsdl:output message="tns:getReasonsForKeywordNotParticipatingInMarketplaceResponse" name="getReasonsForKeywordNotParticipatingInMarketplaceResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordOptimizationGuidelines">
+            <wsdl:input message="tns:getSponsoredSearchMinBidForKeywordOptimizationGuidelinesRequest" name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesRequest"/>
+            <wsdl:output message="tns:getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse" name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordString">
+            <wsdl:input message="tns:getSponsoredSearchMinBidForKeywordStringRequest" name="getSponsoredSearchMinBidForKeywordStringRequest"/>
+            <wsdl:output message="tns:getSponsoredSearchMinBidForKeywordStringResponse" name="getSponsoredSearchMinBidForKeywordStringResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordStrings">
+            <wsdl:input message="tns:getSponsoredSearchMinBidForKeywordStringsRequest" name="getSponsoredSearchMinBidForKeywordStringsRequest"/>
+            <wsdl:output message="tns:getSponsoredSearchMinBidForKeywordStringsResponse" name="getSponsoredSearchMinBidForKeywordStringsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidUpdatesByAdGroupId">
+            <wsdl:input message="tns:getSponsoredSearchMinBidUpdatesByAdGroupIdRequest" name="getSponsoredSearchMinBidUpdatesByAdGroupIdRequest"/>
+            <wsdl:output message="tns:getSponsoredSearchMinBidUpdatesByAdGroupIdResponse" name="getSponsoredSearchMinBidUpdatesByAdGroupIdResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getStatusForKeyword">
+            <wsdl:input message="tns:getStatusForKeywordRequest" name="getStatusForKeywordRequest"/>
+            <wsdl:output message="tns:getStatusForKeywordResponse" name="getStatusForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getUpdateForKeyword">
+            <wsdl:input message="tns:getUpdateForKeywordRequest" name="getUpdateForKeywordRequest"/>
+            <wsdl:output message="tns:getUpdateForKeywordResponse" name="getUpdateForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="moveKeyword">
+            <wsdl:input message="tns:moveKeywordRequest" name="moveKeywordRequest"/>
+            <wsdl:output message="tns:moveKeywordResponse" name="moveKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setKeywordUrl">
+            <wsdl:input message="tns:setKeywordUrlRequest" name="setKeywordUrlRequest"/>
+            <wsdl:output message="tns:setKeywordUrlResponse" name="setKeywordUrlResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="setOptimizationGuidelinesForKeyword">
+            <wsdl:input message="tns:setOptimizationGuidelinesForKeywordRequest" name="setOptimizationGuidelinesForKeywordRequest"/>
+            <wsdl:output message="tns:setOptimizationGuidelinesForKeywordResponse" name="setOptimizationGuidelinesForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateKeyword">
+            <wsdl:input message="tns:updateKeywordRequest" name="updateKeywordRequest"/>
+            <wsdl:output message="tns:updateKeywordResponse" name="updateKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateKeywords">
+            <wsdl:input message="tns:updateKeywordsRequest" name="updateKeywordsRequest"/>
+            <wsdl:output message="tns:updateKeywordsResponse" name="updateKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSponsoredSearchMaxBidForKeyword">
+            <wsdl:input message="tns:updateSponsoredSearchMaxBidForKeywordRequest" name="updateSponsoredSearchMaxBidForKeywordRequest"/>
+            <wsdl:output message="tns:updateSponsoredSearchMaxBidForKeywordResponse" name="updateSponsoredSearchMaxBidForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSponsoredSearchMaxBidForKeywords">
+            <wsdl:input message="tns:updateSponsoredSearchMaxBidForKeywordsRequest" name="updateSponsoredSearchMaxBidForKeywordsRequest"/>
+            <wsdl:output message="tns:updateSponsoredSearchMaxBidForKeywordsResponse" name="updateSponsoredSearchMaxBidForKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForKeyword">
+            <wsdl:input message="tns:updateStatusForKeywordRequest" name="updateStatusForKeywordRequest"/>
+            <wsdl:output message="tns:updateStatusForKeywordResponse" name="updateStatusForKeywordResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForKeywords">
+            <wsdl:input message="tns:updateStatusForKeywordsRequest" name="updateStatusForKeywordsRequest"/>
+            <wsdl:output message="tns:updateStatusForKeywordsResponse" name="updateStatusForKeywordsResponse"/>
+            <wsdl:fault message="tns:ApiFault" name="ApiFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="KeywordServiceHttpBinding" type="tns:KeywordService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="addKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="copyKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="copyKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="copyKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="deleteKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getEditorialReasonText">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getEditorialReasonTextRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getEditorialReasonTextResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getEditorialReasonsForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getEditorialReasonsForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getEditorialReasonsForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordParticipationStatusByAdGroupId">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordParticipationStatusByAdGroupIdRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordParticipationStatusByAdGroupIdResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordSponsoredSearchMaxBid">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordSponsoredSearchMaxBidRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordSponsoredSearchMaxBidResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAccountID">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAccountIDRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAccountIDResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupByParticipatesInMarketplace">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAdGroupByParticipatesInMarketplaceRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAdGroupByParticipatesInMarketplaceResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupBySponsoredSearchBidStatus">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAdGroupBySponsoredSearchBidStatusRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAdGroupBySponsoredSearchBidStatusResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupID">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAdGroupIDRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAdGroupIDResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupIDByEditorialStatus">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAdGroupIDByEditorialStatusRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAdGroupIDByEditorialStatusResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getKeywordsByAdGroupIDByStatus">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getKeywordsByAdGroupIDByStatusRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getKeywordsByAdGroupIDByStatusResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getOptimizationGuidelinesForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getOptimizationGuidelinesForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getOptimizationGuidelinesForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getReasonsForKeywordNotParticipatingInMarketplace">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getReasonsForKeywordNotParticipatingInMarketplaceRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getReasonsForKeywordNotParticipatingInMarketplaceResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordOptimizationGuidelines">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSponsoredSearchMinBidForKeywordOptimizationGuidelinesResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordString">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getSponsoredSearchMinBidForKeywordStringRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSponsoredSearchMinBidForKeywordStringResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidForKeywordStrings">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getSponsoredSearchMinBidForKeywordStringsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSponsoredSearchMinBidForKeywordStringsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getSponsoredSearchMinBidUpdatesByAdGroupId">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getSponsoredSearchMinBidUpdatesByAdGroupIdRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSponsoredSearchMinBidUpdatesByAdGroupIdResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getStatusForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getStatusForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getStatusForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUpdateForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="getUpdateForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUpdateForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="moveKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="moveKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="moveKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setKeywordUrl">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setKeywordUrlRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setKeywordUrlResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setOptimizationGuidelinesForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="setOptimizationGuidelinesForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setOptimizationGuidelinesForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSponsoredSearchMaxBidForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateSponsoredSearchMaxBidForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateSponsoredSearchMaxBidForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateSponsoredSearchMaxBidForKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateSponsoredSearchMaxBidForKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateSponsoredSearchMaxBidForKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForKeyword">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateStatusForKeywordRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateStatusForKeywordResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateStatusForKeywords">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="updateStatusForKeywordsRequest">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfUsername" part="onBehalfOfUsername" use="literal"/>
+                <wsdlsoap:header message="tns:onBehalfOfPassword" part="onBehalfOfPassword" use="literal"/>
+                <wsdlsoap:header message="tns:masterAccountID" part="masterAccountID" use="literal"/>
+                <wsdlsoap:header message="tns:license" part="license" use="literal"/>
+                <wsdlsoap:header message="tns:accountID" part="accountID" use="literal"/>
+                <wsdlsoap:header message="tns:Security" part="Security" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateStatusForKeywordsResponse">
+                <wsdlsoap:body use="literal"/>
+                <wsdlsoap:header message="tns:commandGroup" part="commandGroup" use="literal"/>
+                <wsdlsoap:header message="tns:remainingQuota" part="remainingQuota" use="literal"/>
+                <wsdlsoap:header message="tns:quotaUsedForThisRequest" part="quotaUsedForThisRequest" use="literal"/>
+                <wsdlsoap:header message="tns:timeTakenMillis" part="timeTakenMillis" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApiFault">
+                <wsdlsoap:fault name="ApiFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="KeywordServiceService">
+        <wsdl:port binding="tns:KeywordServiceHttpBinding" name="KeywordService">
+            <wsdlsoap:address location="https://USE_ADDRESS_RETURNED_BY_LOCATION_SERVICE/services/V6/KeywordService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
